@@ -10,7 +10,7 @@ import Navigation from "@/components/Navigation";
 import { cn } from "@/lib/utils";
 
 const VIDEO_URL =
-  "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260429_182501_0216c2be-1b2f-40d3-8716-0d4f42e73b44.mp4";
+  "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260506_031045_0e1165dd-ab48-46e3-ad3d-5fe77f217647.mp4";
 
 interface ExperimentMetric {
   value: string;
@@ -234,7 +234,7 @@ export default function Experiments() {
       <Navigation />
 
       {/* Hero / intro */}
-      <section className="relative px-6 pt-12 pb-16 sm:pt-20 sm:pb-24 max-w-7xl mx-auto">
+      <section className="relative px-6 pt-12 pb-6 sm:pt-20 sm:pb-10 max-w-7xl mx-auto">
         <motion.span
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -272,7 +272,7 @@ export default function Experiments() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground/70 mt-16"
+          className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground/70 mt-10"
         >
           Scroll to scrub
         </motion.p>
