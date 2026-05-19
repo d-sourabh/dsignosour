@@ -4,6 +4,11 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+interface CaseStudyImpact {
+  value: string;
+  label: string;
+}
+
 interface CaseStudy {
   number: string;
   route?: string;
@@ -12,6 +17,7 @@ interface CaseStudy {
   metadata: string;
   placeholder: string;
   inProgress?: boolean;
+  impacts?: CaseStudyImpact[];
 }
 
 const CASE_STUDIES: CaseStudy[] = [
@@ -23,6 +29,11 @@ const CASE_STUDIES: CaseStudy[] = [
       "FSS launched a new AI-first digital experience that transformed how banks, regulators, employees, and partners perceived the brand across India, the Middle East, and Africa.",
     metadata: "Brand Strategy · Website Transformation · AI Experience · Experiential Marketing",
     placeholder: "Placeholder for homepage hero showcasing the new dark-mode website experience.",
+    impacts: [
+      { value: "91K+", label: "Visitors" },
+      { value: "2.6×", label: "Sessions" },
+      { value: "3.4M", label: "Impressions" },
+    ],
   },
   {
     number: "02",
@@ -32,6 +43,11 @@ const CASE_STUDIES: CaseStudy[] = [
       "Creating product positioning systems and GTM narratives across payment gateway, CMS, recon, switch, and platform products.",
     metadata: "GTM · Positioning · Sales Enablement · PMM",
     placeholder: "Placeholder for product ecosystem diagram.",
+    impacts: [
+      { value: "5+", label: "Products" },
+      { value: "18", label: "Markets" },
+      { value: "12", label: "Launches" },
+    ],
   },
   {
     number: "03",
@@ -41,6 +57,11 @@ const CASE_STUDIES: CaseStudy[] = [
       "Scaling Simply Payments from a niche CXO gathering into a recognised fintech ecosystem platform.",
     metadata: "Executive Marketing · Community · Events",
     placeholder: "Placeholder for executive storytelling visuals.",
+    impacts: [
+      { value: "1.2K+", label: "CXOs" },
+      { value: "8", label: "Cities" },
+      { value: "40+", label: "Sessions" },
+    ],
   },
   {
     number: "04",
@@ -50,6 +71,11 @@ const CASE_STUDIES: CaseStudy[] = [
       "Exploring AI, AR, interactive systems, and immersive storytelling in modern B2B marketing.",
     metadata: "Innovation · AI · AR · Experiments",
     placeholder: "Placeholder for AI-powered experience showcase.",
+    impacts: [
+      { value: "12", label: "Experiments" },
+      { value: "4", label: "Platforms" },
+      { value: "6", label: "Categories" },
+    ],
   },
   {
     number: "05",
@@ -166,6 +192,24 @@ function CaseStudyTile({ cs }: { cs: CaseStudy }) {
         >
           {cs.title}
         </h3>
+
+        {cs.impacts && cs.impacts.length > 0 && (
+          <div className="flex flex-row flex-wrap gap-x-5 gap-y-2 mb-4 pb-4 border-b border-white/[0.06]">
+            {cs.impacts.map((imp, i) => (
+              <div key={i} className="flex flex-col">
+                <span
+                  className="text-xl md:text-2xl leading-none tracking-[-0.5px]"
+                  style={{ fontFamily: "'Instrument Serif', serif" }}
+                >
+                  {imp.value}
+                </span>
+                <span className="text-[9px] uppercase tracking-[0.15em] text-muted-foreground/70 mt-1.5">
+                  {imp.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        )}
 
         <p className="text-[13px] text-muted-foreground leading-[1.6] line-clamp-3 mb-4">
           {cs.description}
