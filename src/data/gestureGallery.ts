@@ -1,48 +1,80 @@
 export interface GestureEntry {
-  index: string;
+  id: string;        // internal key matching useGestures detection
+  index: string;     // display number "01"-"10"
   name: string;
   description: string;
+  filter: string;    // short label for the filter effect
 }
 
-export interface GestureGroup {
-  category: string;
-  entries: GestureEntry[];
-}
-
-export const gestureGallery: GestureGroup[] = [
+export const GESTURES: GestureEntry[] = [
   {
-    category: "Hand Gestures",
-    entries: [
-      { index: "01", name: "Peace Sign", description: "Extend index and middle fingers — \"✌️ peace\" floats into view." },
-      { index: "02", name: "Thumbs Up", description: "Raise your thumb, curl the rest — \"noted, thanks\" with white dots rising from your thumb." },
-      { index: "03", name: "Open Palm", description: "Spread all five fingers flat — concentric ripples radiate from your palm." },
-      { index: "04", name: "Finger Painting", description: "Extend only your index, tuck your thumb — draw glowing trails that fade after three seconds." },
-      { index: "05", name: "Shaka", description: "Extend thumb and pinky, curl the rest — \"stay in touch\" glows softly." },
-      { index: "06", name: "Fist Hold", description: "Clench your fist and hold for 1.5 seconds — the screen shakes briefly." },
-      { index: "07", name: "Pointing at Camera", description: "Point your index finger forward — \"you, yes you\" types itself letter by letter." },
-    ],
+    id: "fist",
+    index: "01",
+    name: "Fist",
+    description: "Clench all five fingers tight.",
+    filter: "Dither",
   },
   {
-    category: "Face Gestures",
-    entries: [
-      { index: "08", name: "Head Tilt", description: "Tilt your head past 15° — \"hmm\" or \"huh\" appears beside you." },
-      { index: "09", name: "Wink", description: "Close one eye — a twinkle drifts up from the corner of the winking eye." },
-      { index: "10", name: "Mouth Open Wide", description: "Open your mouth — the camera zooms out slightly, returning when you close." },
-      { index: "11", name: "Eyebrow Raise", description: "Raise your eyebrows above baseline — \"interesting\" fades in." },
-    ],
+    id: "peace",
+    index: "02",
+    name: "Peace Sign",
+    description: "Index and middle fingers up, others curled.",
+    filter: "VHS · chromatic aberration",
   },
   {
-    category: "Combined Gestures",
-    entries: [
-      { index: "12", name: "Ray of Light", description: "Touch your index finger to your forehead — a white gradient ray extends upward." },
-      { index: "13", name: "Pinch Zoom", description: "Pinch thumb and index apart with both hands — the video smoothly scales up to 1.8×." },
-      { index: "14", name: "Slap", description: "Move your hand fast across your face — \"ouch that hurt\" flashes center-screen." },
-      { index: "15", name: "Hand on Chin", description: "Rest your palm under your chin — \"thinking…\" appears in italic at the bottom." },
-      { index: "16", name: "Heart Shape", description: "Touch both thumb tips and index tips together, hands raised — floating hearts rise." },
-      { index: "17", name: "Clap", description: "Bring both hands together quickly — a full-screen flash with an audio click." },
-      { index: "18", name: "Hands Raised", description: "Raise both hands above your head — \"let it all out\" in oversized type." },
-      { index: "19", name: "Hand Swipe", description: "Swipe your palm quickly left or right — the screen slides in that direction." },
-      { index: "20", name: "Finger Spark", description: "Touch both index fingertips together — white sparks burst at the contact point." },
-    ],
+    id: "pointing",
+    index: "03",
+    name: "Pointing Finger",
+    description: "Index finger only, others curled.",
+    filter: "Spotlight",
+  },
+  {
+    id: "openPalm",
+    index: "04",
+    name: "Open Palm",
+    description: "All five fingers spread wide.",
+    filter: "Water ripple",
+  },
+  {
+    id: "thumbsUp",
+    index: "05",
+    name: "Thumbs Up",
+    description: "Thumb extended up, fingers curled.",
+    filter: "\"noted, thanks\" overlay",
+  },
+  {
+    id: "rockOn",
+    index: "06",
+    name: "Rock On",
+    description: "Index and pinky up, middle and ring curled.",
+    filter: "Glitch · RGB shift",
+  },
+  {
+    id: "okSign",
+    index: "07",
+    name: "OK Sign",
+    description: "Thumb and index forming a circle, others extended.",
+    filter: "Soft focus + vignette",
+  },
+  {
+    id: "thumbDown",
+    index: "08",
+    name: "Thumb Down",
+    description: "Thumb extended downward, fingers curled.",
+    filter: "Invert colors",
+  },
+  {
+    id: "pinch",
+    index: "09",
+    name: "Pinch",
+    description: "Thumb and index pinched, other fingers curled.",
+    filter: "Magnify",
+  },
+  {
+    id: "threeFingers",
+    index: "10",
+    name: "Three Fingers",
+    description: "Index, middle, and ring extended.",
+    filter: "Pixelate · 8-bit",
   },
 ];
