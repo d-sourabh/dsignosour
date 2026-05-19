@@ -18,6 +18,7 @@ interface CaseStudy {
   placeholder: string;
   inProgress?: boolean;
   impacts?: CaseStudyImpact[];
+  thumbnail?: string;
 }
 
 const CASE_STUDIES: CaseStudy[] = [
@@ -29,6 +30,7 @@ const CASE_STUDIES: CaseStudy[] = [
       "FSS launched a new AI-first digital experience that transformed how banks, regulators, employees, and partners perceived the brand across India, the Middle East, and Africa.",
     metadata: "Brand Strategy · Website Transformation · AI Experience · Experiential Marketing",
     placeholder: "Placeholder for homepage hero showcasing the new dark-mode website experience.",
+    thumbnail: "/fss-thumbnail.webp",
     impacts: [
       { value: "91K+", label: "Visitors" },
       { value: "2.6×", label: "Sessions" },
@@ -132,45 +134,71 @@ function CaseStudyTile({ cs }: { cs: CaseStudy }) {
         isInProgress && "opacity-70"
       )}
     >
-      {/* Editorial placeholder area */}
+      {/* Editorial placeholder area or thumbnail */}
       <div className="relative w-full aspect-[4/5] overflow-hidden">
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(120% 80% at 50% 10%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0) 60%), linear-gradient(180deg, rgba(255,255,255,0.015) 0%, rgba(0,0,0,0.15) 100%)",
-          }}
-        />
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
-            backgroundSize: "48px 48px",
-            maskImage:
-              "radial-gradient(ellipse at center, rgba(0,0,0,0.7), transparent 70%)",
-            WebkitMaskImage:
-              "radial-gradient(ellipse at center, rgba(0,0,0,0.7), transparent 70%)",
-          }}
-        />
+        {cs.thumbnail ? (
+          <>
+            <img
+              src={cs.thumbnail}
+              alt={cs.title}
+              className="absolute inset-0 w-full h-full object-cover"
+              loading="lazy"
+            />
+            {/* Subtle dark overlay to keep the title and metadata legible if needed downstream */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background:
+                  "linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.15) 100%)",
+              }}
+            />
+            {/* Editorial corner marks kept for visual consistency with placeholder tiles */}
+            <span className="absolute top-4 left-4 w-3 h-3 border-t border-l border-white/25" />
+            <span className="absolute top-4 right-4 w-3 h-3 border-t border-r border-white/25" />
+            <span className="absolute bottom-4 left-4 w-3 h-3 border-b border-l border-white/25" />
+            <span className="absolute bottom-4 right-4 w-3 h-3 border-b border-r border-white/25" />
+          </>
+        ) : (
+          <>
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "radial-gradient(120% 80% at 50% 10%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0) 60%), linear-gradient(180deg, rgba(255,255,255,0.015) 0%, rgba(0,0,0,0.15) 100%)",
+              }}
+            />
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                backgroundImage:
+                  "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
+                backgroundSize: "48px 48px",
+                maskImage:
+                  "radial-gradient(ellipse at center, rgba(0,0,0,0.7), transparent 70%)",
+                WebkitMaskImage:
+                  "radial-gradient(ellipse at center, rgba(0,0,0,0.7), transparent 70%)",
+              }}
+            />
 
-        {/* Corner marks */}
-        <span className="absolute top-4 left-4 w-3 h-3 border-t border-l border-white/25" />
-        <span className="absolute top-4 right-4 w-3 h-3 border-t border-r border-white/25" />
-        <span className="absolute bottom-4 left-4 w-3 h-3 border-b border-l border-white/25" />
-        <span className="absolute bottom-4 right-4 w-3 h-3 border-b border-r border-white/25" />
+            {/* Corner marks */}
+            <span className="absolute top-4 left-4 w-3 h-3 border-t border-l border-white/25" />
+            <span className="absolute top-4 right-4 w-3 h-3 border-t border-r border-white/25" />
+            <span className="absolute bottom-4 left-4 w-3 h-3 border-b border-l border-white/25" />
+            <span className="absolute bottom-4 right-4 w-3 h-3 border-b border-r border-white/25" />
 
-        <div className="absolute inset-0 flex flex-col items-center justify-center px-8 text-center">
-          <span className="text-[10px] tracking-[0.4em] uppercase text-muted-foreground/70 mb-4">
-            {cs.number}
-          </span>
-          <span
-            className="text-muted-foreground/70 text-sm max-w-[260px]"
-            style={{ fontFamily: "'Instrument Serif', serif" }}
-          >
-            {cs.placeholder}
-          </span>
-        </div>
+            <div className="absolute inset-0 flex flex-col items-center justify-center px-8 text-center">
+              <span className="text-[10px] tracking-[0.4em] uppercase text-muted-foreground/70 mb-4">
+                {cs.number}
+              </span>
+              <span
+                className="text-muted-foreground/70 text-sm max-w-[260px]"
+                style={{ fontFamily: "'Instrument Serif', serif" }}
+              >
+                {cs.placeholder}
+              </span>
+            </div>
+          </>
+        )}
 
         {/* In Progress chip, top right */}
         {isInProgress && (
