@@ -1,21 +1,77 @@
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Sparkle } from "lucide-react";
 
-const CURIOSITY_ROW_1 = [
+// ───────────────────────────────────────────────────────────
+// Data
+// ───────────────────────────────────────────────────────────
+
+const SPECIALTY_ROW_1 = [
   "Product Marketing",
-  "Systems Thinking",
-  "Storytelling",
-  "Internet Culture",
-  "AI & Creativity",
+  "AI Engineer",
+  "GTM",
+  "Sales Enablement",
+  "ABM",
+  "Demand Generation",
+  "Budget Planning & AOP",
+  "Brand Strategy",
 ];
 
-const CURIOSITY_ROW_2 = [
-  "Tech Innovation",
-  "Brand Psychology",
-  "Digital Aesthetics",
-  "Future Web",
-  "Pop Cult",
+const SPECIALTY_ROW_2 = [
+  "Content Writing",
+  "Campaign Execution",
+  "Competitive Intelligence",
+  "Pipeline Attribution",
+  "Event Marketing",
+  "Market Research",
+  "SEO, AEO & GEO",
+  "Martech Automation",
 ];
+
+const BRANDS = [
+  "ITC",
+  "Swiggy",
+  "Marico",
+  "Titan",
+  "Sony Music",
+  "OZiva",
+  "Purplle",
+  "Setu",
+];
+
+// Placeholder quotes — Sourabh will swap with his own picks.
+// Mix of voices: behavioural econ, classic copy, management, modern marketing, advertising craft.
+const PHILOSOPHY_QUOTES = [
+  {
+    quote:
+      "Marketing is one part magic, four parts misunderstanding.",
+    attribution: "Rory Sutherland",
+  },
+  {
+    quote:
+      "The consumer isn’t a moron. She is your wife.",
+    attribution: "David Ogilvy",
+  },
+  {
+    quote:
+      "The aim of marketing is to know and understand the customer so well the product or service fits him and sells itself.",
+    attribution: "Peter Drucker",
+  },
+  {
+    quote:
+      "People do not buy goods and services. They buy relations, stories, and magic.",
+    attribution: "Seth Godin",
+  },
+  {
+    quote:
+      "Adapt your techniques to an idea, not an idea to your techniques.",
+    attribution: "Bill Bernbach",
+  },
+];
+
+// ───────────────────────────────────────────────────────────
+// Small helpers
+// ───────────────────────────────────────────────────────────
 
 function EyebrowLabel({ label }: { label: string }) {
   return (
@@ -28,6 +84,77 @@ function EyebrowLabel({ label }: { label: string }) {
     </div>
   );
 }
+
+// ───────────────────────────────────────────────────────────
+// Philosophy quote carousel (auto-advances, pause on hover)
+// ───────────────────────────────────────────────────────────
+
+function PhilosophyCarousel() {
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (paused) return;
+    const id = window.setInterval(() => {
+      setIndex((i) => (i + 1) % PHILOSOPHY_QUOTES.length);
+    }, 7000);
+    return () => window.clearInterval(id);
+  }, [paused]);
+
+  return (
+    <article
+      className="relative rounded-2xl border border-white/[0.06] bg-white/[0.015] noise-overlay p-6 md:p-8 overflow-hidden flex flex-col min-h-[260px]"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      <EyebrowLabel label="Philosophy" />
+
+      <div className="relative flex-1 mt-8 mb-4 min-h-[150px]">
+        <AnimatePresence mode="wait">
+          <motion.blockquote
+            key={index}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute inset-0 flex flex-col justify-center"
+          >
+            <p
+              className="text-xl md:text-2xl leading-[1.3] tracking-[-0.5px] text-foreground/95 text-balance"
+              style={{ fontFamily: "'Instrument Serif', serif" }}
+            >
+              “{PHILOSOPHY_QUOTES[index].quote}”
+            </p>
+            <p className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground/80 mt-4">
+              {PHILOSOPHY_QUOTES[index].attribution}
+            </p>
+          </motion.blockquote>
+        </AnimatePresence>
+      </div>
+
+      {/* Indicator dots */}
+      <div className="flex flex-row items-center gap-1.5 mt-auto pt-4">
+        {PHILOSOPHY_QUOTES.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setIndex(i)}
+            aria-label={`Show quote ${i + 1}`}
+            className={`h-1 rounded-full transition-all duration-500 ${
+              i === index ? "w-6 bg-white/70" : "w-1 bg-white/20"
+            }`}
+          />
+        ))}
+        <span className="ml-auto text-[10px] uppercase tracking-[0.2em] text-muted-foreground/70">
+          On approach
+        </span>
+      </div>
+    </article>
+  );
+}
+
+// ───────────────────────────────────────────────────────────
+// Main About section
+// ───────────────────────────────────────────────────────────
 
 export default function AboutMe() {
   return (
@@ -71,10 +198,10 @@ export default function AboutMe() {
         </div>
 
         <a
-          href="https://wa.link/tf9g4j"
+          href="https://www.linkedin.com/in/dhavala-sourabh/"
           target="_blank"
           rel="noopener noreferrer"
-          className="liquid-glass rounded-full px-6 py-3 text-sm text-foreground hover:scale-[1.03] transition-transform duration-300 self-start lg:self-end whitespace-nowrap"
+          className="liquid-glass rounded-full px-10 py-4 text-sm text-foreground hover:scale-[1.03] transition-transform duration-300 self-start lg:self-auto whitespace-nowrap"
         >
           Connect
         </a>
@@ -84,9 +211,9 @@ export default function AboutMe() {
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-2 gap-4 md:gap-5 lg:auto-rows-fr"
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5"
       >
         {/* Card 1: Full-bleed photo (tall, spans both rows on lg) */}
         <article className="relative lg:row-span-2 rounded-2xl overflow-hidden bg-black min-h-[480px] lg:min-h-0">
@@ -95,54 +222,40 @@ export default function AboutMe() {
             alt="Dhavala Sourabh"
             className="absolute inset-0 w-full h-full object-cover object-top"
           />
-
-          {/* Subtle gradient at top for label legibility */}
           <div
-            className="absolute inset-x-0 top-0 h-32 pointer-events-none"
+            className="absolute inset-0 pointer-events-none"
             style={{
               background:
-                "linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 100%)",
+                "linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,0.55) 100%)",
             }}
           />
-
-          {/* Subtle gradient at bottom for caption legibility */}
-          <div
-            className="absolute inset-x-0 bottom-0 h-40 pointer-events-none"
-            style={{
-              background:
-                "linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%)",
-            }}
-          />
-
-          {/* Top-left label */}
-          <div className="absolute top-6 left-6 md:top-8 md:left-8 z-10">
-            <EyebrowLabel label="Portrait" />
-          </div>
-
-          {/* Bottom caption */}
-          <div className="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8 md:right-8 z-10">
-            <h3
-              className="text-2xl md:text-3xl tracking-tight leading-none text-white"
+          <div className="absolute bottom-6 left-6 right-6">
+            <span className="text-[10px] uppercase tracking-[0.3em] text-white/80">
+              Portrait
+            </span>
+            <p
+              className="text-2xl md:text-3xl leading-tight text-white mt-2"
               style={{ fontFamily: "'Instrument Serif', serif" }}
             >
               Dhavala Sourabh
-            </h3>
-            <p className="text-[11px] uppercase tracking-[0.22em] text-white/60 mt-2">
-              Bengaluru, 2026
+            </p>
+            <p className="text-xs text-white/70 mt-1">
+              Bengaluru · India
             </p>
           </div>
         </article>
 
-        {/* Card 2: The Journey (timeline) */}
+        {/* Card 2: The Journey */}
         <article className="relative rounded-2xl border border-white/[0.06] bg-white/[0.015] noise-overlay p-6 md:p-8 overflow-hidden flex flex-col min-h-[260px]">
           <EyebrowLabel label="The Journey" />
 
-          <p className="text-muted-foreground text-[14px] leading-[1.65] mt-6">
-            Engineering introduced me to systems thinking. MICA introduced me
-            to strategy and communication. Somewhere between the two, I found
-            a fascination for storytelling, technology, and digital
-            experiences.
-          </p>
+          <div className="text-muted-foreground text-[14px] leading-[1.65] mt-6 space-y-3">
+            <p>
+              Engineering taught me how products work. Marketing taught me why
+              they don&apos;t.
+            </p>
+            <p>I&apos;ve been working in that gap ever since.</p>
+          </div>
 
           <div className="mt-auto pt-6 border-t border-white/[0.08] flex flex-col gap-3">
             <div className="flex items-center gap-3">
@@ -184,9 +297,8 @@ export default function AboutMe() {
           </div>
         </article>
 
-        {/* Card 3: Curiosities (marquee + video background) */}
+        {/* Card 3: Multispeciality Marketer (marquee + video background) */}
         <article className="relative rounded-2xl border border-white/[0.06] bg-black noise-overlay overflow-hidden flex flex-col min-h-[260px]">
-          {/* Ambient fluted glass video background */}
           <video
             autoPlay
             loop
@@ -199,8 +311,6 @@ export default function AboutMe() {
           >
             <source src="/curiosities-bg.mp4" type="video/mp4" />
           </video>
-
-          {/* Darkening overlay so the marquee tags read cleanly on top */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
@@ -209,15 +319,14 @@ export default function AboutMe() {
             }}
           />
 
-          {/* Content sits above video */}
           <div className="relative z-10 flex flex-col h-full">
             <div className="p-6 md:p-8 pb-0">
-              <EyebrowLabel label="Curiosities" />
+              <EyebrowLabel label="Multispeciality Marketer" />
             </div>
 
             <div className="flex-1 flex flex-col justify-center gap-3 my-6 [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
               <div className="flex gap-3 animate-marquee-left whitespace-nowrap">
-                {[...CURIOSITY_ROW_1, ...CURIOSITY_ROW_1].map((tag, i) => (
+                {[...SPECIALTY_ROW_1, ...SPECIALTY_ROW_1].map((tag, i) => (
                   <span
                     key={`r1-${i}`}
                     className="liquid-glass rounded-full px-4 py-2 text-xs sm:text-sm text-foreground/95 whitespace-nowrap shrink-0"
@@ -227,7 +336,7 @@ export default function AboutMe() {
                 ))}
               </div>
               <div className="flex gap-3 animate-marquee-right whitespace-nowrap">
-                {[...CURIOSITY_ROW_2, ...CURIOSITY_ROW_2].map((tag, i) => (
+                {[...SPECIALTY_ROW_2, ...SPECIALTY_ROW_2].map((tag, i) => (
                   <span
                     key={`r2-${i}`}
                     className="liquid-glass rounded-full px-4 py-2 text-xs sm:text-sm text-foreground/95 whitespace-nowrap shrink-0"
@@ -240,71 +349,53 @@ export default function AboutMe() {
 
             <div className="p-6 md:p-8 pt-0">
               <span className="text-[11px] uppercase tracking-wide text-white/70">
-                Always exploring
+                Sixteen specialities, one focus
               </span>
             </div>
           </div>
         </article>
 
-        {/* Card 4: Philosophy */}
-        <article className="relative rounded-2xl border border-white/[0.06] bg-white/[0.015] noise-overlay p-6 md:p-8 overflow-hidden flex flex-col min-h-[260px]">
-          <EyebrowLabel label="Philosophy" />
+        {/* Card 4: Philosophy carousel */}
+        <PhilosophyCarousel />
 
-          <p
-            className="text-2xl md:text-[28px] leading-[1.25] tracking-[-0.5px] text-foreground/90 mt-8 text-balance"
-            style={{ fontFamily: "'Instrument Serif', serif" }}
-          >
-            Quiet, thoughtful marketing. Brands that earn attention{" "}
-            <em className="not-italic text-muted-foreground">naturally</em>{" "}
-            rather than demand it.
+        {/* Card 5: Brands worked with */}
+        <article className="relative rounded-2xl border border-white/[0.06] bg-white/[0.015] noise-overlay p-6 md:p-8 overflow-hidden flex flex-col min-h-[260px]">
+          <EyebrowLabel label="Brands Worked With" />
+
+          <div className="mt-6 flex flex-wrap gap-x-3 gap-y-1">
+            {BRANDS.map((brand, i) => (
+              <span
+                key={brand}
+                className="text-xl md:text-2xl leading-[1.25] tracking-[-0.5px] text-foreground/95"
+                style={{ fontFamily: "'Instrument Serif', serif" }}
+              >
+                {brand}
+                {i < BRANDS.length - 1 && (
+                  <span className="text-muted-foreground/50 ml-3">·</span>
+                )}
+              </span>
+            ))}
+          </div>
+
+          <p className="text-[13px] text-muted-foreground leading-[1.6] mt-4 max-w-[320px]">
+            &amp; many more, across branding, digital marketing, and design
+            projects.
           </p>
 
-          <span className="text-[11px] uppercase tracking-wide text-muted-foreground/70 mt-auto pt-6">
-            On approach
-          </span>
-        </article>
-
-        {/* Card 5: Identity (with logo) + This Space */}
-        <article className="relative rounded-2xl border border-white/[0.06] bg-white/[0.015] noise-overlay p-6 md:p-8 overflow-hidden flex flex-col min-h-[260px]">
-          <EyebrowLabel label="Identity" />
-
-          <div className="flex flex-row items-center gap-5 mt-6">
-            <img
-              src="/dsignosour-logo.svg"
-              alt="dsignosour mark"
-              className="w-20 h-20 md:w-24 md:h-24 shrink-0 opacity-95"
-            />
-            <h3
-              className="text-3xl md:text-4xl tracking-tight leading-none"
-              style={{ fontFamily: "'Instrument Serif', serif" }}
-            >
-              dsignosour
-            </h3>
-          </div>
-
-          <div className="mt-6 flex flex-col gap-0.5">
-            <p
-              className="text-lg md:text-xl leading-[1.3] text-foreground/95"
-              style={{ fontFamily: "'Instrument Serif', serif" }}
-            >
-              part portfolio,
-            </p>
-            <p
-              className="text-lg md:text-xl leading-[1.3] text-foreground/70"
-              style={{ fontFamily: "'Instrument Serif', serif" }}
-            >
-              part journal,
-            </p>
-            <p
-              className="text-lg md:text-xl leading-[1.3] text-muted-foreground"
-              style={{ fontFamily: "'Instrument Serif', serif" }}
-            >
-              part evolving digital universe.
-            </p>
-          </div>
+          <a
+            href="/#work"
+            className="inline-flex items-center gap-2 text-sm text-foreground/90 mt-6 group/link"
+          >
+            <span className="border-b border-white/30 group-hover/link:border-white/70 transition-colors">
+              See Work
+            </span>
+            <span className="transition-transform duration-300 group-hover/link:translate-x-1">
+              →
+            </span>
+          </a>
 
           <span className="text-[11px] uppercase tracking-wide text-muted-foreground/70 mt-auto pt-6">
-            A reflection of curiosity
+            Selected client portfolio
           </span>
         </article>
       </motion.div>
