@@ -36,7 +36,7 @@ export default function Hero() {
           href="#work"
           className="animate-fade-rise-delay-2 liquid-glass rounded-full px-14 py-5 text-base text-foreground mt-12 hover:scale-[1.03] cursor-pointer transition-transform duration-300"
         >
-          Selected Work
+          Select Work
         </a>
       </div>
     </section>

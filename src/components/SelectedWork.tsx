@@ -326,7 +326,7 @@ export default function SelectedWork() {
           transition={{ duration: 0.8 }}
           className="text-sm uppercase tracking-[0.3em] text-muted-foreground block"
         >
-          Selected Work
+          Select Work
         </motion.span>
 
         <motion.h2
