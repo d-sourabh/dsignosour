@@ -21,20 +21,22 @@ export default function Hero() {
           className="animate-fade-rise text-5xl sm:text-7xl md:text-8xl leading-[0.95] tracking-[-2.46px] max-w-7xl font-normal text-balance"
           style={{ fontFamily: "'Instrument Serif', serif" }}
         >
-          Marketing my{" "}
-          <em className="not-italic text-muted-foreground">territory.</em>
+          A marketer,{" "}
+          <em className="not-italic text-muted-foreground">
+            occasionally useful.
+          </em>
         </h1>
 
         <p className="animate-fade-rise-delay text-muted-foreground text-base sm:text-lg max-w-2xl mt-8 leading-relaxed">
-          Brand, narrative, GTM, and digital experience: claiming precious{" "}
-          <em className="not-italic text-foreground/80">real estate</em> in
-          your{" "}
-          <em className="not-italic text-foreground/80">mind.</em>
+          Frequently{" "}
+          <em className="not-italic text-foreground/80">distracted.</em>{" "}
+          Mostly thinking about why some things{" "}
+          <em className="not-italic text-foreground/80">stick.</em>
         </p>
 
         <a
           href="#work"
-          className="animate-fade-rise-delay-2 liquid-glass rounded-full px-14 py-5 text-base text-foreground mt-12 hover:scale-[1.03] cursor-pointer transition-transform duration-300"
+          className="animate-fade-rise-delay-2 liquid-glass rounded-full px-10 sm:px-14 py-4 sm:py-5 text-sm sm:text-base text-foreground mt-12 hover:scale-[1.03] cursor-pointer transition-transform duration-300 whitespace-nowrap"
         >
           Select Work
         </a>

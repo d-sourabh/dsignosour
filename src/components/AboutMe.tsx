@@ -215,7 +215,7 @@ export default function AboutMe() {
           href="https://www.linkedin.com/in/dhavala-sourabh/"
           target="_blank"
           rel="noopener noreferrer"
-          className="liquid-glass rounded-full px-10 py-4 text-sm text-foreground hover:scale-[1.03] transition-transform duration-300 self-start lg:self-auto whitespace-nowrap"
+          className="liquid-glass rounded-full px-8 sm:px-10 py-3.5 sm:py-4 text-sm text-foreground hover:scale-[1.03] transition-transform duration-300 self-start lg:self-auto whitespace-nowrap"
         >
           Connect
         </a>

@@ -106,7 +106,7 @@ export default function Footer() {
               href="https://wa.link/tf9g4j"
               target="_blank"
               rel="noopener noreferrer"
-              className="liquid-glass rounded-full px-14 py-5 text-base text-foreground hover:scale-[1.03] cursor-pointer transition-transform duration-300"
+              className="liquid-glass rounded-full px-10 sm:px-14 py-4 sm:py-5 text-sm sm:text-base text-foreground hover:scale-[1.03] cursor-pointer transition-transform duration-300 whitespace-nowrap"
             >
               Say Hi
             </a>
