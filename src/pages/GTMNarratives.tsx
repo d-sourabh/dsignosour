@@ -11,7 +11,7 @@ export default function GTMNarratives() {
   return (
     <CaseStudyPage>
       <CaseStudyOpening
-        index="02 / 04"
+        index="02 / 08"
         eyebrow="Case Study · GTM"
         meta="GTM · Positioning · Sales Enablement · Product Marketing"
         statement="Building product narratives across a complex payments ecosystem."
@@ -87,7 +87,7 @@ export default function GTMNarratives() {
       />
 
       <NextCaseStudy
-        number="03 / 04"
+        number="03 / 08"
         route="/work/simply-payments"
         title="Building an Industry Narrative Platform"
       />

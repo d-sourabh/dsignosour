@@ -11,7 +11,7 @@ export default function SimplyPayments() {
   return (
     <CaseStudyPage>
       <CaseStudyOpening
-        index="03 / 04"
+        index="03 / 08"
         eyebrow="Case Study · Simply Payments"
         meta="Executive Marketing · Community · Events · Narrative Strategy"
         statement="Building an executive fintech narrative platform from the ground up."
@@ -99,7 +99,7 @@ export default function SimplyPayments() {
       />
 
       <NextCaseStudy
-        number="04 / 04"
+        number="04 / 08"
         route="/work/innovation-lab"
         title="Designing Experimental Brand Experiences"
       />

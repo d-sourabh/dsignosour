@@ -11,7 +11,7 @@ export default function InnovationLab() {
   return (
     <CaseStudyPage>
       <CaseStudyOpening
-        index="04 / 04"
+        index="04 / 08"
         eyebrow="Case Study · Innovation Lab"
         meta="Innovation · AI · AR · Experiments"
         statement="Designing experimental systems for modern brand storytelling."
@@ -87,7 +87,7 @@ export default function InnovationLab() {
       />
 
       <NextCaseStudy
-        number="01 / 04"
+        number="01 / 08"
         route="/work/fss-transformation"
         title="Repositioning FSS for the AI Era"
       />
