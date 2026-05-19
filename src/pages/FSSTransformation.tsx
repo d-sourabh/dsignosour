@@ -25,7 +25,7 @@ export default function FSSTransformation() {
           "For more than three decades, FSS had built a reputation as a trusted payments infrastructure company powering banks, processors, and financial institutions across India, the Middle East, and Africa. But the market had changed. AI, real-time payments, embedded finance, and modern digital experiences were redefining how enterprise technology brands were evaluated.",
           "The challenge was not credibility. FSS already had that. The challenge was perception. The company was still seen as infrastructure-first in a market increasingly rewarding intelligence, design, speed, and innovation. The brief was to launch a completely new digital experience that would reposition FSS as a future-ready, AI-first platform brand while retaining the trust associated with a 34-year legacy.",
         ]}
-        image="/fss-old-vs-new.jpg"
+        image="/fss-old-vs-new.webp"
         imageAlt="Side-by-side comparison of the legacy FSS website and the new dark-mode platform brand experience."
         placeholder="Old versus new website transformation."
       />
