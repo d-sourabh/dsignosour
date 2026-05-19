@@ -93,11 +93,12 @@ function PhilosophyCarousel() {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
 
+  // Auto-advance, resets timer on pause/index change
   useEffect(() => {
     if (paused) return;
     const id = window.setInterval(() => {
       setIndex((i) => (i + 1) % PHILOSOPHY_QUOTES.length);
-    }, 7000);
+    }, 3000);
     return () => window.clearInterval(id);
   }, [paused]);
 
@@ -107,6 +108,19 @@ function PhilosophyCarousel() {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
+      {/* Thin auto-advance progress bar — reseeds with each quote, makes the timing visible */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-white/[0.04] overflow-hidden">
+        {!paused && (
+          <motion.div
+            key={index}
+            initial={{ width: "0%" }}
+            animate={{ width: "100%" }}
+            transition={{ duration: 3, ease: "linear" }}
+            className="h-full bg-white/40"
+          />
+        )}
+      </div>
+
       <EyebrowLabel label="Philosophy" />
 
       <div className="relative flex-1 mt-8 mb-4 min-h-[150px]">
@@ -349,7 +363,7 @@ export default function AboutMe() {
 
             <div className="p-6 md:p-8 pt-0">
               <span className="text-[11px] uppercase tracking-wide text-white/70">
-                Sixteen specialities, one focus
+                Jack of many trades, master of some
               </span>
             </div>
           </div>
@@ -360,9 +374,16 @@ export default function AboutMe() {
 
         {/* Card 5: Brands worked with */}
         <article className="relative rounded-2xl border border-white/[0.06] bg-white/[0.015] noise-overlay p-6 md:p-8 overflow-hidden flex flex-col min-h-[260px]">
-          <EyebrowLabel label="Brands Worked With" />
+          <div className="flex items-center justify-between gap-4 mb-6">
+            <EyebrowLabel label="Brands Worked With" />
+            <img
+              src="/dsignosour-logo.svg"
+              alt="dsignosour mark"
+              className="w-12 h-12 md:w-14 md:h-14 shrink-0 opacity-95"
+            />
+          </div>
 
-          <div className="mt-6 flex flex-wrap gap-x-3 gap-y-1">
+          <div className="flex flex-wrap gap-x-3 gap-y-1">
             {BRANDS.map((brand, i) => (
               <span
                 key={brand}
