@@ -21,14 +21,15 @@ export default function Hero() {
           className="animate-fade-rise text-5xl sm:text-7xl md:text-8xl leading-[0.95] tracking-[-2.46px] max-w-7xl font-normal text-balance"
           style={{ fontFamily: "'Instrument Serif', serif" }}
         >
-          Designing how{" "}
-          <em className="not-italic text-muted-foreground">products</em> are{" "}
-          <em className="not-italic text-muted-foreground">understood.</em>
+          Marketing my{" "}
+          <em className="not-italic text-muted-foreground">territory.</em>
         </h1>
 
         <p className="animate-fade-rise-delay text-muted-foreground text-base sm:text-lg max-w-2xl mt-8 leading-relaxed">
-          Product marketer blending strategy, storytelling, and digital
-          experience to build modern technology brands.
+          Brand, narrative, GTM, and digital experience: claiming precious{" "}
+          <em className="not-italic text-foreground/80">real estate</em> in
+          your{" "}
+          <em className="not-italic text-foreground/80">mind.</em>
         </p>
 
         <a
@@ -37,11 +38,6 @@ export default function Hero() {
         >
           Selected Work
         </a>
-
-        <p className="animate-fade-rise-delay-2 text-xs uppercase tracking-wide text-muted-foreground/80 mt-14">
-          Brand transformation • GTM systems • Narrative design • AI-first
-          experiences
-        </p>
       </div>
     </section>
   );
