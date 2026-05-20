@@ -94,16 +94,15 @@ const EXPERIMENTS: Experiment[] = [
   },
   {
     number: "06",
-    shortName: "Interactive Whitepaper",
+    shortName: "Sales and Account Intelligence Dashboard",
     description:
-      "A scrollable, animated whitepaper that turns research into a cinematic narrative.",
+      "An interactive dashboard that surfaces account health, pipeline, and buyer signals as a live surface the audience uses rather than reads.",
     metrics: [
-      { value: "3.1×", label: "Completion vs PDF" },
-      { value: "11 min", label: "Avg read time" },
-      { value: "2.8K", label: "Downloads" },
+      { value: "3.5×", label: "Faster account reviews" },
+      { value: "100%", label: "Pipeline visibility" },
+      { value: "18", label: "Signals per account" },
     ],
-    placeholder: "Placeholder for interactive whitepaper scroll sequence.",
-    image: "/exp-interactive-whitepaper.webp",
+    placeholder: "Placeholder for sales and account intelligence dashboard interface.",
   },
 ];
 
