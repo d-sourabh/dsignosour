@@ -40,7 +40,7 @@ export default function BlazePlatform() {
           "Studio, the low-code application builder (prototype in a week, go live in three months). Integrator, connecting modern and legacy systems with intelligent data routing. Oasis, the unified data intelligence stack turning conversations into insights. And Cosmos, the AI and ML core powering generative and predictive intelligence across the platform. Each pillar could enter a different buying conversation and land with a different stakeholder, while every sale reinforced the platform. A \"Powered by BLAZE\" endorsement system then re-positioned the entire existing product portfolio under the new architecture, so legacy products became proof of the platform rather than evidence of the old reputation.",
         ]}
         image="/blaze-anatomy.webp"
-        imageAlt="The anatomy of the FSS BLAZE platform: the four pillars Studio, Oasis, Integrator, and Cosmos sitting above the layered Business, Domain, and Framework Components architecture."
+        imageAlt="The FSS BLAZE platform: products now built on BLAZE, with composable reusable architecture, faster development, 20,000+ TPS scalable on demand, microservices for plug-and-play integration, and infused intelligence (GenAI, NLP, ML, automations), shown above the four pillars Studio, Oasis, Integrator, and Cosmos over the layered Business, Domain, and Framework Components architecture."
         placeholder="The BLAZE branded house: four pillars, one platform."
       />
 
