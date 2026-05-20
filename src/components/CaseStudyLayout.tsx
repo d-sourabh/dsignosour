@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ReactNode, useState, useRef } from "react";
 import Navigation from "./Navigation";
@@ -457,12 +457,39 @@ export function CaseStudyBrochure({
   pageCount,
   basePath,
 }: BrochureProps) {
-  const [page, setPage] = useState(0);
+  // Build the sequence of "spreads". A spread is the set of page numbers
+  // (1-indexed) shown at once. The cover (page 1) shows alone, then pages
+  // turn two at a time as left/right leaves, like an open book.
+  const spreads: number[][] = [];
+  spreads.push([1]); // cover, centered
+  let i = 2;
+  while (i <= pageCount) {
+    if (i + 1 <= pageCount) {
+      spreads.push([i, i + 1]);
+      i += 2;
+    } else {
+      spreads.push([i]); // trailing odd page, alone
+      i += 1;
+    }
+  }
+
+  const [spread, setSpread] = useState(0);
+  const [dir, setDir] = useState(1); // 1 = forward, -1 = back
   const touchStartX = useRef<number | null>(null);
 
-  const pad = (n: number) => String(n + 1).padStart(2, "0");
-  const go = (dir: number) =>
-    setPage((p) => Math.min(pageCount - 1, Math.max(0, p + dir)));
+  const pad = (n: number) => String(n).padStart(2, "0");
+  const src = (p: number) => `${basePath}/page-${pad(p)}.webp`;
+
+  const go = (d: number) =>
+    setSpread((s) => {
+      const next = Math.min(spreads.length - 1, Math.max(0, s + d));
+      if (next !== s) setDir(d);
+      return next;
+    });
+  const jump = (target: number) => {
+    setDir(target > spread ? 1 : -1);
+    setSpread(target);
+  };
 
   const onTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
@@ -472,6 +499,26 @@ export function CaseStudyBrochure({
     const dx = e.changedTouches[0].clientX - touchStartX.current;
     if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1);
     touchStartX.current = null;
+  };
+
+  const current = spreads[spread];
+  const isPair = current.length === 2;
+
+  // Each page is 936 x 1313. A two-page spread is twice as wide.
+  // The stage keeps a fixed aspect so nothing collapses while loading.
+  const stageAspect = isPair ? "1872 / 1313" : "936 / 1313";
+
+  // Page-turn variants: the whole spread rotates in from the binding side.
+  const variants = {
+    enter: (d: number) => ({
+      rotateY: d > 0 ? 28 : -28,
+      opacity: 0,
+    }),
+    center: { rotateY: 0, opacity: 1 },
+    exit: (d: number) => ({
+      rotateY: d > 0 ? -28 : 28,
+      opacity: 0,
+    }),
   };
 
   return (
@@ -487,39 +534,82 @@ export function CaseStudyBrochure({
         </span>
 
         <div
-          className="relative mt-6 rounded-2xl overflow-hidden border border-white/[0.06] bg-black"
+          className="relative mt-6 rounded-2xl overflow-hidden border border-white/[0.06] bg-black px-2 py-4 sm:px-6 sm:py-8"
           onTouchStart={onTouchStart}
           onTouchEnd={onTouchEnd}
         >
-          {/* Page stage */}
-          <div className="relative mx-auto" style={{ maxWidth: 620 }}>
-            <motion.img
-              key={page}
-              src={`${basePath}/page-${pad(page)}.webp`}
-              alt={`Brochure page ${page + 1}`}
-              className="w-full h-auto block"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            />
+          {/* Perspective wrapper for the 3D page turn */}
+          <div
+            className="relative mx-auto"
+            style={{
+              maxWidth: isPair ? 980 : 490,
+              perspective: 2400,
+            }}
+          >
+            <div
+              className="relative w-full"
+              style={{
+                aspectRatio: stageAspect,
+                transformStyle: "preserve-3d",
+              }}
+            >
+              <AnimatePresence initial={false} custom={dir} mode="popLayout">
+                <motion.div
+                  key={spread}
+                  custom={dir}
+                  variants={variants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{
+                    rotateY: { duration: 0.5, ease: [0.36, 0, 0.2, 1] },
+                    opacity: { duration: 0.28 },
+                  }}
+                  className="absolute inset-0 flex justify-center"
+                  style={{ transformStyle: "preserve-3d" }}
+                >
+                  {current.map((p, idx) => (
+                    <div
+                      key={p}
+                      className="relative h-full"
+                      style={{ width: isPair ? "50%" : "100%" }}
+                    >
+                      <img
+                        src={src(p)}
+                        alt={`Brochure page ${p}`}
+                        className="w-full h-full object-contain block"
+                        draggable={false}
+                      />
+                      {/* Center spine shadow on a pair */}
+                      {isPair && idx === 0 && (
+                        <span className="absolute top-0 right-0 h-full w-8 bg-gradient-to-l from-black/40 to-transparent pointer-events-none" />
+                      )}
+                      {isPair && idx === 1 && (
+                        <span className="absolute top-0 left-0 h-full w-8 bg-gradient-to-r from-black/40 to-transparent pointer-events-none" />
+                      )}
+                    </div>
+                  ))}
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </div>
 
           {/* Prev / Next click zones */}
           <button
             type="button"
-            aria-label="Previous page"
+            aria-label="Previous pages"
             onClick={() => go(-1)}
-            disabled={page === 0}
-            className="absolute inset-y-0 left-0 w-1/4 flex items-center justify-start pl-4 text-white/70 hover:text-white disabled:opacity-0 transition"
+            disabled={spread === 0}
+            className="absolute inset-y-0 left-0 w-1/5 flex items-center justify-start pl-4 text-white/70 hover:text-white disabled:opacity-0 transition z-10"
           >
             <span className="text-3xl select-none">‹</span>
           </button>
           <button
             type="button"
-            aria-label="Next page"
+            aria-label="Next pages"
             onClick={() => go(1)}
-            disabled={page === pageCount - 1}
-            className="absolute inset-y-0 right-0 w-1/4 flex items-center justify-end pr-4 text-white/70 hover:text-white disabled:opacity-0 transition"
+            disabled={spread === spreads.length - 1}
+            className="absolute inset-y-0 right-0 w-1/5 flex items-center justify-end pr-4 text-white/70 hover:text-white disabled:opacity-0 transition z-10"
           >
             <span className="text-3xl select-none">›</span>
           </button>
@@ -538,24 +628,27 @@ export function CaseStudyBrochure({
           </figcaption>
           <div className="flex items-center gap-4">
             <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground/70 tabular-nums">
-              {page + 1} / {pageCount}
+              {current.length === 2
+                ? `${current[0]}-${current[1]}`
+                : current[0]}{" "}
+              / {pageCount}
             </span>
             <div className="flex gap-2">
               <button
                 type="button"
                 onClick={() => go(-1)}
-                disabled={page === 0}
+                disabled={spread === 0}
                 className="w-8 h-8 rounded-full border border-white/15 text-white/70 hover:text-white hover:border-white/40 disabled:opacity-30 transition flex items-center justify-center"
-                aria-label="Previous page"
+                aria-label="Previous pages"
               >
                 ‹
               </button>
               <button
                 type="button"
                 onClick={() => go(1)}
-                disabled={page === pageCount - 1}
+                disabled={spread === spreads.length - 1}
                 className="w-8 h-8 rounded-full border border-white/15 text-white/70 hover:text-white hover:border-white/40 disabled:opacity-30 transition flex items-center justify-center"
-                aria-label="Next page"
+                aria-label="Next pages"
               >
                 ›
               </button>
@@ -563,17 +656,17 @@ export function CaseStudyBrochure({
           </div>
         </div>
 
-        {/* Progress dots */}
+        {/* Progress dots (one per spread) */}
         <div className="mt-4 flex flex-wrap gap-1.5">
-          {Array.from({ length: pageCount }).map((_, i) => (
+          {spreads.map((_, i) => (
             <button
               key={i}
               type="button"
-              onClick={() => setPage(i)}
-              aria-label={`Go to page ${i + 1}`}
+              onClick={() => jump(i)}
+              aria-label={`Go to spread ${i + 1}`}
               className={cn(
                 "h-1 rounded-full transition-all",
-                i === page
+                i === spread
                   ? "w-6 bg-white/80"
                   : "w-3 bg-white/20 hover:bg-white/40"
               )}
@@ -584,6 +677,7 @@ export function CaseStudyBrochure({
     </section>
   );
 }
+
 
 // ------------------------------------------------------------------
 // Horizontal media carousel (uniform height, no cropping)
