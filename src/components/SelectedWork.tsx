@@ -55,12 +55,11 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     number: "03",
     route: "/work/simply-payments",
-    title: "Scaling Simply Payments Into a Narrative Platform",
+    title: "Scaling Simply Payments as an Industry Recognized Brand IP",
     description:
       "Scaling Simply Payments from a niche CXO gathering into a recognised fintech ecosystem platform.",
     metadata: "Executive Marketing · Community · Events",
     placeholder: "Placeholder for executive storytelling visuals.",
-    thumbnail: "/simply-payments-thumbnail.webp",
     impacts: [
       { value: "1.2K+", label: "CXOs" },
       { value: "8", label: "Cities" },
@@ -75,7 +74,6 @@ const CASE_STUDIES: CaseStudy[] = [
       "Exploring AI, AR, interactive systems, and immersive storytelling in modern B2B marketing.",
     metadata: "Innovation · AI · AR · Experiments",
     placeholder: "Placeholder for AI-powered experience showcase.",
-    thumbnail: "/innovation-lab-thumbnail.webp",
     impacts: [
       { value: "12", label: "Experiments" },
       { value: "4", label: "Platforms" },
@@ -84,13 +82,18 @@ const CASE_STUDIES: CaseStudy[] = [
   },
   {
     number: "05",
-    title: "The Payments Unheard Podcast",
+    route: "/work/customer-voice",
+    title: "Building a Customer Voice System Across 34 Accounts",
     description:
-      "Building a CXO-grade audio property exploring legacy systems, digital expectations, and the future of payments infrastructure.",
-    metadata: "Editorial Brand · Podcast · CXO Audience",
-    placeholder: "Placeholder for podcast cover and episode visuals.",
-    thumbnail: "/payments-unheard-thumbnail.webp",
-    inProgress: true,
+      "Designing a CSAT and NPS listening system in Qualtrics, coding hundreds of verbatim responses into themes, and building a live observability dashboard leadership could act on.",
+    metadata: "CSAT & NPS · Qualtrics · Customer Analytics · Executive Engagement",
+    placeholder: "Placeholder for the FSS Customer Voice Dashboard.",
+    thumbnail: "/csat-thumbnail.webp",
+    impacts: [
+      { value: "36%", label: "Response rate" },
+      { value: "65", label: "Leaders heard" },
+      { value: "34", label: "Accounts tracked" },
+    ],
   },
   {
     number: "06",
@@ -112,11 +115,11 @@ const CASE_STUDIES: CaseStudy[] = [
   },
   {
     number: "08",
-    title: "More Work in Development",
+    title: "The Payments Unheard Podcast",
     description:
-      "New case studies are being written. The next entries will live here as they ship.",
-    metadata: "Coming soon",
-    placeholder: "Placeholder reserved for future case study.",
+      "Building a CXO-grade audio property exploring legacy systems, digital expectations, and the future of payments infrastructure.",
+    metadata: "Editorial Brand · Podcast · CXO Audience",
+    placeholder: "Placeholder for podcast cover and episode visuals.",
     inProgress: true,
   },
 ];

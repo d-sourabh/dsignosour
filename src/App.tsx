@@ -7,6 +7,7 @@ import FSSTransformation from "@/pages/FSSTransformation";
 import GTMNarratives from "@/pages/GTMNarratives";
 import SimplyPayments from "@/pages/SimplyPayments";
 import InnovationLab from "@/pages/InnovationLab";
+import CustomerVoice from "@/pages/CustomerVoice";
 import Thinking from "@/pages/Thinking";
 import Experiments from "@/pages/Experiments";
 
@@ -31,6 +32,7 @@ export default function App() {
           <Route path="/work/gtm-narratives" element={<GTMNarratives />} />
           <Route path="/work/simply-payments" element={<SimplyPayments />} />
           <Route path="/work/innovation-lab" element={<InnovationLab />} />
+          <Route path="/work/customer-voice" element={<CustomerVoice />} />
           <Route path="/thinking" element={<Thinking />} />
           <Route path="/experiments" element={<Experiments />} />
         </Routes>
