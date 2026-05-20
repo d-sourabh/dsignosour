@@ -75,6 +75,8 @@ interface SectionProps {
   placeholder?: string;
   image?: string;
   imageAlt?: string;
+  video?: string;
+  poster?: string;
   reverse?: boolean;
   pull?: ReactNode;
 }
@@ -87,6 +89,8 @@ export function CaseStudySection({
   placeholder,
   image,
   imageAlt,
+  video,
+  poster,
   reverse = false,
   pull,
 }: SectionProps) {
@@ -143,7 +147,32 @@ export function CaseStudySection({
 
           {pull && <div className="mt-16">{pull}</div>}
 
-          {image ? (
+          {video ? (
+            <div className={cn("mt-20", reverse && "lg:-ml-20")}>
+              <figure className="relative rounded-2xl overflow-hidden border border-white/[0.06] bg-black">
+                <video
+                  src={video}
+                  poster={poster}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  aria-label={imageAlt || placeholder || heading}
+                  className="w-full h-auto block"
+                />
+                <span className="absolute top-3 left-3 w-3 h-3 border-t border-l border-white/30 pointer-events-none" />
+                <span className="absolute top-3 right-3 w-3 h-3 border-t border-r border-white/30 pointer-events-none" />
+                <span className="absolute bottom-3 left-3 w-3 h-3 border-b border-l border-white/30 pointer-events-none" />
+                <span className="absolute bottom-3 right-3 w-3 h-3 border-b border-r border-white/30 pointer-events-none" />
+              </figure>
+              {placeholder && (
+                <figcaption className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground/70 mt-4">
+                  {index} · {placeholder}
+                </figcaption>
+              )}
+            </div>
+          ) : image ? (
             <div className={cn("mt-20", reverse && "lg:-ml-20")}>
               <figure className="relative rounded-2xl overflow-hidden border border-white/[0.06] bg-black">
                 <img

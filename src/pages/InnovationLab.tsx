@@ -25,7 +25,9 @@ export default function InnovationLab() {
           "B2B marketing rewards consistency and punishes risk. The Innovation Lab was built as a controlled venue for the opposite: small, intentional experiments that test what a modern technology brand can do once it stops asking permission from its own playbook.",
           "Every experiment is built with the same rule: ship something a category leader could credibly release tomorrow, not something that looks like an agency reel.",
         ]}
-        placeholder="Placeholder for innovation experimentation framework."
+        image="/innovation-framework.webp"
+        imageAlt="The innovation framework: three pillars of AI-led experiences, AR storytelling, and interactive systems, under one shipping rule."
+        placeholder="Shipping artefacts from the future."
       />
 
       <PullStatement>
@@ -41,7 +43,9 @@ export default function InnovationLab() {
           "Conversational research agents, AI-generated executive briefings, and personalised narrative engines were built and tested with real audiences.",
           "The work was less about novelty and more about establishing the brand as a credible operator of AI surfaces, not a commentator on them.",
         ]}
-        placeholder="Placeholder for AI-powered experience showcase."
+        image="/innovation-ai-led.webp"
+        imageAlt="Merlin, a multilingual conversational AI assistant, live in the product."
+        placeholder="A conversational AI surface in production."
         reverse
       />
 
@@ -53,7 +57,9 @@ export default function InnovationLab() {
           "AR layers were designed for events, executive briefings, and printed artefacts so a one-page document could open into a deeper story when scanned, without requiring an app.",
           "The intent was always continuity: a single narrative that gracefully expanded across paper, screen, and room.",
         ]}
-        placeholder="Placeholder for AR storytelling demonstration."
+        image="/innovation-ar.webp"
+        imageAlt="A Smarter with AI launch panel designed to open into a deeper AR story when scanned."
+        placeholder="Print that opens into an AR story."
       />
 
       <CaseStudySection
@@ -64,7 +70,10 @@ export default function InnovationLab() {
           "Calculators, configurators, benchmarking instruments, and interactive frameworks were treated as primary brand surfaces.",
           "Where most B2B content asks to be read, these systems asked to be used. The brand was felt through the interaction, not declared in the copy.",
         ]}
-        placeholder="Placeholder for interactive systems showcase."
+        video="/innovation-interactive.mp4"
+        poster="/innovation-interactive-poster.webp"
+        imageAlt="An interactive sales-intelligence dashboard the audience uses rather than reads."
+        placeholder="A tool the audience uses, not reads."
         reverse
       />
 
@@ -73,7 +82,9 @@ export default function InnovationLab() {
         label="Future Exploration"
         heading="A standing programme, not a one-off campaign."
         body="The Lab is structured as a continuous practice with quarterly themes, prototype cycles, and documented learnings. Some experiments graduate into the brand. Some are retired. Both outcomes are valuable, and both are designed for."
-        placeholder="Placeholder for future exploration roadmap."
+        image="/innovation-roadmap.webp"
+        imageAlt="A standing quarterly practice with prototype cycles that graduate or retire."
+        placeholder="A standing quarterly practice."
       />
 
       <CaseStudyOutcomes
