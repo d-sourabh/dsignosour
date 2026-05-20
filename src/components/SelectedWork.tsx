@@ -75,6 +75,7 @@ const CASE_STUDIES: CaseStudy[] = [
       "Scaling Simply Payments from a niche CXO gathering into a recognised fintech ecosystem platform.",
     metadata: "Executive Marketing · Community · Events",
     placeholder: "Placeholder for executive storytelling visuals.",
+    thumbnail: "/simply-thumbnail.webp",
     impacts: [
       { value: "1.2K+", label: "CXOs" },
       { value: "8", label: "Cities" },
