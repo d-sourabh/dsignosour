@@ -5,6 +5,9 @@ import {
   CaseStudyOutcomes,
   PullStatement,
   NextCaseStudy,
+  CaseStudyVideo,
+  CaseStudyMediaGrid,
+  CaseStudyBrochure,
 } from "@/components/CaseStudyLayout";
 
 export default function BlazePlatform() {
@@ -40,6 +43,23 @@ export default function BlazePlatform() {
         placeholder="The BLAZE branded house: four pillars, one platform."
       />
 
+      <CaseStudyMediaGrid
+        index="02"
+        label="Brand in Market"
+        items={[
+          {
+            src: "/blaze-printad.webp",
+            alt: "FSS BLAZE print advertisement: 20,000+ transactions per second, zero compromises, with the four pillar marks above the layered platform render.",
+            caption: "02 · Print campaign. Now arriving at leading banks in UAE.",
+          },
+          {
+            src: "/blaze-studio-dev.webp",
+            alt: "FSS BLAZE Studio for developers: the low-code platform positioning with rapid development, enterprise-grade security, extreme flexibility, and AI-powered assistance.",
+            caption: "02 · Studio, positioned for the developer audience.",
+          },
+        ]}
+      />
+
       <CaseStudySection
         index="03"
         label="The Messaging"
@@ -50,6 +70,15 @@ export default function BlazePlatform() {
         ]}
       />
 
+      <CaseStudyVideo
+        index="03"
+        label="Launch Teaser"
+        caption="03 · The BLAZE launch teaser, built to stop a banker mid-scroll."
+        src="/blaze-ad-teaser.mp4"
+        poster="/blaze-ad-poster.webp"
+        maxWidth={680}
+      />
+
       <CaseStudySection
         index="04"
         label="Enabling the Revenue Motion"
@@ -58,6 +87,14 @@ export default function BlazePlatform() {
           "The launch was sequenced as an integrated motion, not a broadcast: PR to establish category credibility, the video series to build understanding, targeted social to extend reach, and a drip email program carrying individually framed BLAZE messaging to named decision-makers at major banks.",
           "The critical layer sat underneath: equipping FSS sales and BD teams with the narrative, the videos, and the pillar-level stories to share directly with prospects and live accounts. The messaging was not an artifact that died at the top of funnel; it was built to be carried into deals. Sustained over three years with LinkedIn performance campaigns, user-generated content, and a dedicated developer-marketing track aimed at the technical evaluators who actually approve a microservices platform.",
         ]}
+      />
+
+      <CaseStudyVideo
+        index="04"
+        label="Developer Marketing"
+        caption="04 · BLAZE Studio teaser, aimed at the developers who evaluate the platform."
+        src="/blaze-studio-teaser.mp4"
+        poster="/blaze-studio-poster.webp"
       />
 
       <PullStatement>
@@ -82,6 +119,31 @@ export default function BlazePlatform() {
         body={[
           "Every layer of the GTM fed one commercial objective: accelerate FSS's transition from legacy monolithic deployments to the BLAZE platform. The strategy targeted a 500+ crore BLAZE pipeline across 38 deals and six Tier-1 banks including SBI, HDFC, and IndusInd.",
           "Documented campaign results backed the motion: more than 30 banks entering transformation conversations, over 10,000 bank decision-makers reached, and content engagement at a 6.2% rate against a 23% newsletter open rate, strong signals for a niche enterprise audience. Awareness was never the goal. Qualified pipeline was.",
+        ]}
+      />
+
+      <CaseStudyBrochure
+        index="07"
+        label="The Collateral"
+        caption="07 · Powered by FSS BLAZE. The full platform brochure. Swipe or use the arrows."
+        pageCount={14}
+        basePath="/blaze-brochure"
+      />
+
+      <CaseStudyMediaGrid
+        index="08"
+        label="More From the Campaign"
+        items={[
+          {
+            src: "",
+            alt: "",
+            caption: "08 · Placeholder. Add a campaign asset here (event, social, OOH).",
+          },
+          {
+            src: "",
+            alt: "",
+            caption: "08 · Placeholder. Add a campaign asset here (PR, carousel, UGC).",
+          },
         ]}
       />
 

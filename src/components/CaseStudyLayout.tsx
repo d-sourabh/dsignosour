@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ReactNode } from "react";
+import { ReactNode, useState, useRef } from "react";
 import Navigation from "./Navigation";
 import EditorialPlaceholder from "./EditorialPlaceholder";
 import { cn } from "@/lib/utils";
@@ -75,8 +75,6 @@ interface SectionProps {
   placeholder?: string;
   image?: string;
   imageAlt?: string;
-  video?: string;
-  poster?: string;
   reverse?: boolean;
   pull?: ReactNode;
 }
@@ -89,8 +87,6 @@ export function CaseStudySection({
   placeholder,
   image,
   imageAlt,
-  video,
-  poster,
   reverse = false,
   pull,
 }: SectionProps) {
@@ -147,32 +143,7 @@ export function CaseStudySection({
 
           {pull && <div className="mt-16">{pull}</div>}
 
-          {video ? (
-            <div className={cn("mt-20", reverse && "lg:-ml-20")}>
-              <figure className="relative rounded-2xl overflow-hidden border border-white/[0.06] bg-black">
-                <video
-                  src={video}
-                  poster={poster}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                  aria-label={imageAlt || placeholder || heading}
-                  className="w-full h-auto block"
-                />
-                <span className="absolute top-3 left-3 w-3 h-3 border-t border-l border-white/30 pointer-events-none" />
-                <span className="absolute top-3 right-3 w-3 h-3 border-t border-r border-white/30 pointer-events-none" />
-                <span className="absolute bottom-3 left-3 w-3 h-3 border-b border-l border-white/30 pointer-events-none" />
-                <span className="absolute bottom-3 right-3 w-3 h-3 border-b border-r border-white/30 pointer-events-none" />
-              </figure>
-              {placeholder && (
-                <figcaption className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground/70 mt-4">
-                  {index} · {placeholder}
-                </figcaption>
-              )}
-            </div>
-          ) : image ? (
+          {image ? (
             <div className={cn("mt-20", reverse && "lg:-ml-20")}>
               <figure className="relative rounded-2xl overflow-hidden border border-white/[0.06] bg-black">
                 <img
@@ -339,6 +310,278 @@ export function NextCaseStudy({ route, title, number }: NextCaseProps) {
           </h2>
         </motion.div>
       </Link>
+    </section>
+  );
+}
+
+// ------------------------------------------------------------------
+// Looping muted video (compressed teaser)
+// ------------------------------------------------------------------
+type CaseStudyVideoProps = {
+  index: string;
+  label: string;
+  caption: string;
+  src: string;
+  poster?: string;
+  /** max width in px for near-square videos so they don't dominate */
+  maxWidth?: number;
+};
+
+export function CaseStudyVideo({
+  index,
+  label,
+  caption,
+  src,
+  poster,
+  maxWidth,
+}: CaseStudyVideoProps) {
+  return (
+    <section className="relative px-6 py-12 max-w-7xl mx-auto">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+          {index} · {label}
+        </span>
+        <div
+          className="relative mt-6 mx-auto"
+          style={maxWidth ? { maxWidth: `${maxWidth}px` } : undefined}
+        >
+          <figure className="relative rounded-2xl overflow-hidden border border-white/[0.06] bg-black">
+            <video
+              src={src}
+              poster={poster}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              className="w-full h-auto block"
+            />
+            <span className="absolute top-3 left-3 w-3 h-3 border-t border-l border-white/30 pointer-events-none" />
+            <span className="absolute top-3 right-3 w-3 h-3 border-t border-r border-white/30 pointer-events-none" />
+            <span className="absolute bottom-3 left-3 w-3 h-3 border-b border-l border-white/30 pointer-events-none" />
+            <span className="absolute bottom-3 right-3 w-3 h-3 border-b border-r border-white/30 pointer-events-none" />
+          </figure>
+          <figcaption className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground/70 mt-4">
+            {index} · {caption}
+          </figcaption>
+        </div>
+      </motion.div>
+    </section>
+  );
+}
+
+// ------------------------------------------------------------------
+// Two-up media grid (images side by side)
+// ------------------------------------------------------------------
+type MediaItem = { src: string; alt: string; caption: string };
+
+export function CaseStudyMediaGrid({
+  index,
+  label,
+  items,
+}: {
+  index: string;
+  label: string;
+  items: MediaItem[];
+}) {
+  return (
+    <section className="relative px-6 py-12 max-w-7xl mx-auto">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+          {index} · {label}
+        </span>
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+          {items.map((it, i) => (
+            <div key={i}>
+              {it.src ? (
+                <figure className="relative rounded-2xl overflow-hidden border border-white/[0.06] bg-black">
+                  <img
+                    src={it.src}
+                    alt={it.alt}
+                    className="w-full h-auto block"
+                    loading="lazy"
+                  />
+                  <span className="absolute top-3 left-3 w-3 h-3 border-t border-l border-white/30 pointer-events-none" />
+                  <span className="absolute top-3 right-3 w-3 h-3 border-t border-r border-white/30 pointer-events-none" />
+                  <span className="absolute bottom-3 left-3 w-3 h-3 border-b border-l border-white/30 pointer-events-none" />
+                  <span className="absolute bottom-3 right-3 w-3 h-3 border-b border-r border-white/30 pointer-events-none" />
+                </figure>
+              ) : (
+                <div className="relative rounded-2xl overflow-hidden border border-dashed border-white/[0.12] bg-white/[0.015] aspect-video flex items-center justify-center">
+                  <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground/50">
+                    Media slot
+                  </span>
+                  <span className="absolute top-3 left-3 w-3 h-3 border-t border-l border-white/20 pointer-events-none" />
+                  <span className="absolute top-3 right-3 w-3 h-3 border-t border-r border-white/20 pointer-events-none" />
+                  <span className="absolute bottom-3 left-3 w-3 h-3 border-b border-l border-white/20 pointer-events-none" />
+                  <span className="absolute bottom-3 right-3 w-3 h-3 border-b border-r border-white/20 pointer-events-none" />
+                </div>
+              )}
+              <figcaption className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground/70 mt-4">
+                {it.caption}
+              </figcaption>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+    </section>
+  );
+}
+
+// ------------------------------------------------------------------
+// Brochure flipbook (self-contained page-turning viewer)
+// ------------------------------------------------------------------
+type BrochureProps = {
+  index: string;
+  label: string;
+  caption: string;
+  /** total number of pages; files expected at `${basePath}/page-NN.webp` (1-indexed, zero-padded) */
+  pageCount: number;
+  basePath: string;
+};
+
+export function CaseStudyBrochure({
+  index,
+  label,
+  caption,
+  pageCount,
+  basePath,
+}: BrochureProps) {
+  const [page, setPage] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+
+  const pad = (n: number) => String(n + 1).padStart(2, "0");
+  const go = (dir: number) =>
+    setPage((p) => Math.min(pageCount - 1, Math.max(0, p + dir)));
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1);
+    touchStartX.current = null;
+  };
+
+  return (
+    <section className="relative px-6 py-16 max-w-7xl mx-auto">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+          {index} · {label}
+        </span>
+
+        <div
+          className="relative mt-6 rounded-2xl overflow-hidden border border-white/[0.06] bg-black"
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
+        >
+          {/* Page stage */}
+          <div className="relative mx-auto" style={{ maxWidth: 620 }}>
+            <motion.img
+              key={page}
+              src={`${basePath}/page-${pad(page)}.webp`}
+              alt={`Brochure page ${page + 1}`}
+              className="w-full h-auto block"
+              loading="lazy"
+              initial={{ opacity: 0, rotateY: -8 }}
+              animate={{ opacity: 1, rotateY: 0 }}
+              transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+            />
+          </div>
+
+          {/* Prev / Next click zones */}
+          <button
+            type="button"
+            aria-label="Previous page"
+            onClick={() => go(-1)}
+            disabled={page === 0}
+            className="absolute inset-y-0 left-0 w-1/4 flex items-center justify-start pl-4 text-white/70 hover:text-white disabled:opacity-0 transition"
+          >
+            <span className="text-3xl select-none">‹</span>
+          </button>
+          <button
+            type="button"
+            aria-label="Next page"
+            onClick={() => go(1)}
+            disabled={page === pageCount - 1}
+            className="absolute inset-y-0 right-0 w-1/4 flex items-center justify-end pr-4 text-white/70 hover:text-white disabled:opacity-0 transition"
+          >
+            <span className="text-3xl select-none">›</span>
+          </button>
+
+          {/* Corner marks */}
+          <span className="absolute top-3 left-3 w-3 h-3 border-t border-l border-white/30 pointer-events-none" />
+          <span className="absolute top-3 right-3 w-3 h-3 border-t border-r border-white/30 pointer-events-none" />
+          <span className="absolute bottom-3 left-3 w-3 h-3 border-b border-l border-white/30 pointer-events-none" />
+          <span className="absolute bottom-3 right-3 w-3 h-3 border-b border-r border-white/30 pointer-events-none" />
+        </div>
+
+        {/* Controls row */}
+        <div className="mt-4 flex items-center justify-between">
+          <figcaption className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground/70">
+            {index} · {caption}
+          </figcaption>
+          <div className="flex items-center gap-4">
+            <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground/70 tabular-nums">
+              {page + 1} / {pageCount}
+            </span>
+            <div className="flex gap-2">
+              <button
+                type="button"
+                onClick={() => go(-1)}
+                disabled={page === 0}
+                className="w-8 h-8 rounded-full border border-white/15 text-white/70 hover:text-white hover:border-white/40 disabled:opacity-30 transition flex items-center justify-center"
+                aria-label="Previous page"
+              >
+                ‹
+              </button>
+              <button
+                type="button"
+                onClick={() => go(1)}
+                disabled={page === pageCount - 1}
+                className="w-8 h-8 rounded-full border border-white/15 text-white/70 hover:text-white hover:border-white/40 disabled:opacity-30 transition flex items-center justify-center"
+                aria-label="Next page"
+              >
+                ›
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Progress dots */}
+        <div className="mt-4 flex flex-wrap gap-1.5">
+          {Array.from({ length: pageCount }).map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => setPage(i)}
+              aria-label={`Go to page ${i + 1}`}
+              className={cn(
+                "h-1 rounded-full transition-all",
+                i === page
+                  ? "w-6 bg-white/80"
+                  : "w-3 bg-white/20 hover:bg-white/40"
+              )}
+            />
+          ))}
+        </div>
+      </motion.div>
     </section>
   );
 }
