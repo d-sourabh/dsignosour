@@ -23,6 +23,7 @@ interface Experiment {
   description: string;
   metrics: ExperimentMetric[];
   placeholder: string;
+  image?: string;
 }
 
 const EXPERIMENTS: Experiment[] = [
@@ -37,6 +38,7 @@ const EXPERIMENTS: Experiment[] = [
       { value: "12K", label: "Social shares" },
     ],
     placeholder: "Placeholder for AR packaging product visuals.",
+    image: "/exp-ar-packaging.webp",
   },
   {
     number: "02",
@@ -49,6 +51,7 @@ const EXPERIMENTS: Experiment[] = [
       { value: "4 min", label: "Avg dwell time" },
     ],
     placeholder: "Placeholder for phygital invitation reveal moment.",
+    image: "/exp-phygital-invite.webp",
   },
   {
     number: "03",
@@ -61,6 +64,7 @@ const EXPERIMENTS: Experiment[] = [
       { value: "3.4 min", label: "Avg engagement" },
     ],
     placeholder: "Placeholder for AR gift box unboxing sequence.",
+    image: "/exp-ar-giftbox.webp",
   },
   {
     number: "04",
@@ -73,6 +77,7 @@ const EXPERIMENTS: Experiment[] = [
       { value: "4.2/5", label: "Avg sentiment" },
     ],
     placeholder: "Placeholder for Merlin avatar interaction visuals.",
+    image: "/exp-merlin-avatar.webp",
   },
   {
     number: "05",
@@ -85,6 +90,7 @@ const EXPERIMENTS: Experiment[] = [
       { value: "6 min", label: "Avg session" },
     ],
     placeholder: "Placeholder for ROI calculator interface mockup.",
+    image: "/exp-roi-calculator.webp",
   },
   {
     number: "06",
@@ -97,6 +103,7 @@ const EXPERIMENTS: Experiment[] = [
       { value: "2.8K", label: "Downloads" },
     ],
     placeholder: "Placeholder for interactive whitepaper scroll sequence.",
+    image: "/exp-interactive-whitepaper.webp",
   },
 ];
 
@@ -133,39 +140,50 @@ function TileContent({ exp }: { exp: Experiment }) {
         ))}
       </div>
 
-      {/* Editorial media placeholder */}
-      <div className="relative w-full aspect-[16/9] mt-10 rounded-xl overflow-hidden border border-white/[0.06]">
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(120% 80% at 50% 10%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0) 60%), linear-gradient(180deg, rgba(255,255,255,0.015) 0%, rgba(0,0,0,0.15) 100%)",
-          }}
-        />
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
-            backgroundSize: "48px 48px",
-            maskImage:
-              "radial-gradient(ellipse at center, rgba(0,0,0,0.7), transparent 70%)",
-            WebkitMaskImage:
-              "radial-gradient(ellipse at center, rgba(0,0,0,0.7), transparent 70%)",
-          }}
-        />
+      {/* Editorial media slot */}
+      <div className="relative w-full aspect-[16/9] mt-10 rounded-xl overflow-hidden border border-white/[0.06] bg-black">
+        {exp.image ? (
+          <img
+            src={exp.image}
+            alt={exp.shortName}
+            className="absolute inset-0 w-full h-full object-cover"
+            loading="lazy"
+          />
+        ) : (
+          <>
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "radial-gradient(120% 80% at 50% 10%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0) 60%), linear-gradient(180deg, rgba(255,255,255,0.015) 0%, rgba(0,0,0,0.15) 100%)",
+              }}
+            />
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                backgroundImage:
+                  "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
+                backgroundSize: "48px 48px",
+                maskImage:
+                  "radial-gradient(ellipse at center, rgba(0,0,0,0.7), transparent 70%)",
+                WebkitMaskImage:
+                  "radial-gradient(ellipse at center, rgba(0,0,0,0.7), transparent 70%)",
+              }}
+            />
+            <div className="absolute inset-0 flex items-center justify-center px-8 text-center">
+              <span
+                className="text-muted-foreground/70 text-sm max-w-md"
+                style={{ fontFamily: "'Instrument Serif', serif" }}
+              >
+                {exp.placeholder}
+              </span>
+            </div>
+          </>
+        )}
         <span className="absolute top-4 left-4 w-3 h-3 border-t border-l border-white/25" />
         <span className="absolute top-4 right-4 w-3 h-3 border-t border-r border-white/25" />
         <span className="absolute bottom-4 left-4 w-3 h-3 border-b border-l border-white/25" />
         <span className="absolute bottom-4 right-4 w-3 h-3 border-b border-r border-white/25" />
-        <div className="absolute inset-0 flex items-center justify-center px-8 text-center">
-          <span
-            className="text-muted-foreground/70 text-sm max-w-md"
-            style={{ fontFamily: "'Instrument Serif', serif" }}
-          >
-            {exp.placeholder}
-          </span>
-        </div>
       </div>
     </div>
   );

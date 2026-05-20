@@ -43,7 +43,9 @@ export default function GTMNarratives() {
           "Each product was rebuilt with a positioning canvas: category frame, ideal buyer, competitive contrast, proof points, and the single sentence the sales team would say in a hallway.",
           "These were not slides. They became operating documents that decided what the website said, what the deck opened with, and what the analyst briefing emphasised.",
         ]}
-        placeholder="Placeholder for positioning canvas system."
+        image="/gtm-positioning-canvas.webp"
+        imageAlt="A positioning canvas with five blocks: category frame, ideal buyer, competitive contrast, proof points, and a single hallway sentence."
+        placeholder="The positioning canvas, applied per product."
         reverse
       />
 
@@ -55,7 +57,9 @@ export default function GTMNarratives() {
           "Buyer intelligence surfaced four recurring archetypes across Indian banking: the PSB Visionary, the Digital-Native CIO, the Transaction Operator, and the Builder-Banker.",
           "Each had its own pace, vocabulary, and political reality. Every narrative was then tested against the archetype most likely to sponsor the deal, not the audience that liked the deck.",
         ]}
-        placeholder="Placeholder for buyer archetype map."
+        image="/gtm-persona-map.webp"
+        imageAlt="Four buyer archetypes mapped on axes of legacy-to-digital posture and cautious-to-bold risk appetite: PSB Visionary, Digital-Native CIO, Transaction Operator, Builder-Banker."
+        placeholder="Four buyer archetypes across Indian banking."
       />
 
       <CaseStudySection
@@ -66,7 +70,9 @@ export default function GTMNarratives() {
           "Decks were rebuilt around argument arcs rather than feature inventories. Each slide had to advance a decision, not describe a capability.",
           "Battlecards, objection libraries, executive briefings, and one-pagers were redesigned around the same arc so the field always told a continuous story across stages.",
         ]}
-        placeholder="Placeholder for sales enablement asset system."
+        image="/gtm-sales-enablement.webp"
+        imageAlt="The lead-gen flywheel showing how marketing momentum converts into qualified pipeline."
+        placeholder="The lead-gen flywheel behind enablement."
         reverse
       />
 
@@ -75,7 +81,9 @@ export default function GTMNarratives() {
         label="Regional GTM Adaptation"
         heading="One story. Three regional accents."
         body="India, the Middle East, and APAC are not the same buyer with a different timezone. Each region got an adapted narrative layer addressing local regulation, market maturity, and competitive set, while preserving the platform spine that made the brand recognisable."
-        placeholder="Placeholder for regional narrative adaptation map."
+        image="/gtm-regional-map.webp"
+        imageAlt="One platform narrative spine adapted into India, Middle East, and APAC regional accents."
+        placeholder="One spine, three regional accents."
       />
 
       <CaseStudyOutcomes

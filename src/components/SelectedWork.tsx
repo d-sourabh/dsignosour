@@ -60,6 +60,7 @@ const CASE_STUDIES: CaseStudy[] = [
       "Scaling Simply Payments from a niche CXO gathering into a recognised fintech ecosystem platform.",
     metadata: "Executive Marketing · Community · Events",
     placeholder: "Placeholder for executive storytelling visuals.",
+    thumbnail: "/simply-payments-thumbnail.webp",
     impacts: [
       { value: "1.2K+", label: "CXOs" },
       { value: "8", label: "Cities" },
@@ -74,6 +75,7 @@ const CASE_STUDIES: CaseStudy[] = [
       "Exploring AI, AR, interactive systems, and immersive storytelling in modern B2B marketing.",
     metadata: "Innovation · AI · AR · Experiments",
     placeholder: "Placeholder for AI-powered experience showcase.",
+    thumbnail: "/innovation-lab-thumbnail.webp",
     impacts: [
       { value: "12", label: "Experiments" },
       { value: "4", label: "Platforms" },
@@ -87,6 +89,7 @@ const CASE_STUDIES: CaseStudy[] = [
       "Building a CXO-grade audio property exploring legacy systems, digital expectations, and the future of payments infrastructure.",
     metadata: "Editorial Brand · Podcast · CXO Audience",
     placeholder: "Placeholder for podcast cover and episode visuals.",
+    thumbnail: "/payments-unheard-thumbnail.webp",
     inProgress: true,
   },
   {

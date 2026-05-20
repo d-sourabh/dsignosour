@@ -1,6 +1,9 @@
 node_modules
 dist
 dist-ssr
+
+# Raw source media (large originals + organized library) — kept local, not pushed
+_media-source/
 .netlify
 .DS_Store
 .vscode/*
