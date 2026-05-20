@@ -505,8 +505,10 @@ export function CaseStudyBrochure({
   const isPair = current.length === 2;
 
   // Each page is 936 x 1313. A two-page spread is twice as wide.
-  // The stage keeps a fixed aspect so nothing collapses while loading.
-  const stageAspect = isPair ? "1872 / 1313" : "936 / 1313";
+  // The stage stays a CONSTANT size (always the two-page spread frame) so the
+  // container never resizes between the single cover/last page and a pair.
+  // A single page is centered within that fixed frame at the same page size.
+  const stageAspect = "1872 / 1313";
 
   // Page-turn variants: the whole spread rotates in from the binding side.
   const variants = {
@@ -542,7 +544,7 @@ export function CaseStudyBrochure({
           <div
             className="relative mx-auto"
             style={{
-              maxWidth: isPair ? 980 : 490,
+              maxWidth: 980,
               perspective: 2400,
             }}
           >
@@ -572,7 +574,7 @@ export function CaseStudyBrochure({
                     <div
                       key={p}
                       className="relative h-full"
-                      style={{ width: isPair ? "50%" : "100%" }}
+                      style={{ width: "50%" }}
                     >
                       <img
                         src={src(p)}
