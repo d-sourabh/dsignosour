@@ -45,6 +45,7 @@ const CASE_STUDIES: CaseStudy[] = [
       "Creating product positioning systems and GTM narratives across payment gateway, CMS, recon, switch, and platform products.",
     metadata: "GTM · Positioning · Sales Enablement · PMM",
     placeholder: "Placeholder for product ecosystem diagram.",
+    thumbnail: "/gtm-thumbnail.webp",
     impacts: [
       { value: "5+", label: "Products" },
       { value: "18", label: "Markets" },

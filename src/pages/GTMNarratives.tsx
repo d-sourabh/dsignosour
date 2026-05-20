@@ -25,7 +25,9 @@ export default function GTMNarratives() {
           "Payment gateway, card management, reconciliation, switching, and platform products had each grown their own language over the years. To a buyer evaluating modernization, the portfolio sounded like five companies sharing a logo.",
           "The work was to find the shared narrative spine and let each product speak inside that spine with its own voice intact.",
         ]}
-        placeholder="Placeholder for product ecosystem diagram."
+        image="/gtm-architecture.webp"
+        imageAlt="FSS payments ecosystem architecture showing the issuer stack, payment processing, merchant and acquirer stack, monitoring and reconciliation, and digital security layers connected through the Cosmos AI core and FSS Blaze platform."
+        placeholder="The connected FSS payments ecosystem, built on FSS Blaze."
       />
 
       <PullStatement>
