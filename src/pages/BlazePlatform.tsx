@@ -65,7 +65,7 @@ export default function BlazePlatform() {
           },
           {
             src: "/blaze-onepager-cosmos.webp",
-            alt: "FSS Cosmos AI now powered on FSS BLAZE one pager.",
+            alt: "FSS BLAZE Cosmos one pager: generative intelligence powered by an AI and ML core, with AI at scale, smart insights, faster development, and flexible future-ready solutions.",
             caption: "Cosmos",
           },
           {
