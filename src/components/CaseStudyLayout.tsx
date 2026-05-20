@@ -498,10 +498,9 @@ export function CaseStudyBrochure({
               src={`${basePath}/page-${pad(page)}.webp`}
               alt={`Brochure page ${page + 1}`}
               className="w-full h-auto block"
-              loading="lazy"
-              initial={{ opacity: 0, rotateY: -8 }}
-              animate={{ opacity: 1, rotateY: 0 }}
-              transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             />
           </div>
 
@@ -580,6 +579,149 @@ export function CaseStudyBrochure({
               )}
             />
           ))}
+        </div>
+      </motion.div>
+    </section>
+  );
+}
+
+// ------------------------------------------------------------------
+// Horizontal media carousel (uniform height, no cropping)
+// Items scroll horizontally; each keeps its native aspect at a shared height.
+// ------------------------------------------------------------------
+type CarouselItem = { src: string; alt: string; caption?: string };
+
+export function CaseStudyCarousel({
+  index,
+  label,
+  items,
+}: {
+  index: string;
+  label: string;
+  items: CarouselItem[];
+}) {
+  const scroller = useRef<HTMLDivElement | null>(null);
+
+  const scrollBy = (dir: number) => {
+    const el = scroller.current;
+    if (!el) return;
+    el.scrollBy({ left: dir * Math.round(el.clientWidth * 0.8), behavior: "smooth" });
+  };
+
+  return (
+    <section className="relative py-16">
+      <div className="px-6 max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <div className="flex items-center justify-between">
+            <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+              {index} · {label}
+            </span>
+            <div className="flex gap-2">
+              <button
+                type="button"
+                onClick={() => scrollBy(-1)}
+                aria-label="Scroll left"
+                className="w-9 h-9 rounded-full border border-white/15 text-white/70 hover:text-white hover:border-white/40 transition flex items-center justify-center"
+              >
+                ‹
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollBy(1)}
+                aria-label="Scroll right"
+                className="w-9 h-9 rounded-full border border-white/15 text-white/70 hover:text-white hover:border-white/40 transition flex items-center justify-center"
+              >
+                ›
+              </button>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Edge-bleed scroller */}
+      <div
+        ref={scroller}
+        className="mt-6 flex gap-5 overflow-x-auto scrollbar-hidden snap-x snap-mandatory px-6 lg:px-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))]"
+        style={{ scrollbarWidth: "none" }}
+      >
+        {items.map((it, i) => (
+          <figure
+            key={i}
+            className="snap-start shrink-0 group"
+          >
+            <div className="relative rounded-2xl overflow-hidden border border-white/[0.06] bg-black">
+              {/* Uniform height, width auto -> no cropping */}
+              <img
+                src={it.src}
+                alt={it.alt}
+                className="h-[60vh] max-h-[640px] w-auto block"
+                loading="lazy"
+              />
+              <span className="absolute top-3 left-3 w-3 h-3 border-t border-l border-white/30 pointer-events-none" />
+              <span className="absolute top-3 right-3 w-3 h-3 border-t border-r border-white/30 pointer-events-none" />
+              <span className="absolute bottom-3 left-3 w-3 h-3 border-b border-l border-white/30 pointer-events-none" />
+              <span className="absolute bottom-3 right-3 w-3 h-3 border-b border-r border-white/30 pointer-events-none" />
+            </div>
+            {it.caption && (
+              <figcaption className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground/70 mt-3">
+                {it.caption}
+              </figcaption>
+            )}
+          </figure>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+// ------------------------------------------------------------------
+// Single full-bleed image, never cropped (height auto, full width within frame)
+// ------------------------------------------------------------------
+export function CaseStudyImage({
+  index,
+  label,
+  caption,
+  src,
+  alt,
+  maxWidth,
+}: {
+  index: string;
+  label: string;
+  caption: string;
+  src: string;
+  alt: string;
+  maxWidth?: number;
+}) {
+  return (
+    <section className="relative px-6 py-12 max-w-7xl mx-auto">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+          {index} · {label}
+        </span>
+        <div
+          className="relative mt-6 mx-auto"
+          style={maxWidth ? { maxWidth: `${maxWidth}px` } : undefined}
+        >
+          <figure className="relative rounded-2xl overflow-hidden border border-white/[0.06] bg-black">
+            <img src={src} alt={alt} className="w-full h-auto block" loading="lazy" />
+            <span className="absolute top-3 left-3 w-3 h-3 border-t border-l border-white/30 pointer-events-none" />
+            <span className="absolute top-3 right-3 w-3 h-3 border-t border-r border-white/30 pointer-events-none" />
+            <span className="absolute bottom-3 left-3 w-3 h-3 border-b border-l border-white/30 pointer-events-none" />
+            <span className="absolute bottom-3 right-3 w-3 h-3 border-b border-r border-white/30 pointer-events-none" />
+          </figure>
+          <figcaption className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground/70 mt-4">
+            {index} · {caption}
+          </figcaption>
         </div>
       </motion.div>
     </section>

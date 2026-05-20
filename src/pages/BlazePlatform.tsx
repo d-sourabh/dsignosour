@@ -6,7 +6,8 @@ import {
   PullStatement,
   NextCaseStudy,
   CaseStudyVideo,
-  CaseStudyMediaGrid,
+  CaseStudyImage,
+  CaseStudyCarousel,
   CaseStudyBrochure,
 } from "@/components/CaseStudyLayout";
 
@@ -43,19 +44,34 @@ export default function BlazePlatform() {
         placeholder="The BLAZE branded house: four pillars, one platform."
       />
 
-      <CaseStudyMediaGrid
+      <CaseStudyCarousel
         index="02"
-        label="Brand in Market"
+        label="One Pager Per Pillar"
         items={[
           {
-            src: "/blaze-printad.webp",
-            alt: "FSS BLAZE print advertisement: 20,000+ transactions per second, zero compromises, with the four pillar marks above the layered platform render.",
-            caption: "02 · Print campaign. Now arriving at leading banks in UAE.",
+            src: "/blaze-onepager-studio.webp",
+            alt: "FSS BLAZE Studio one pager: low-code development for rapid innovation.",
+            caption: "Studio",
           },
           {
-            src: "/blaze-studio-dev.webp",
-            alt: "FSS BLAZE Studio for developers: the low-code platform positioning with rapid development, enterprise-grade security, extreme flexibility, and AI-powered assistance.",
-            caption: "02 · Studio, positioned for the developer audience.",
+            src: "/blaze-onepager-integrator.webp",
+            alt: "FSS BLAZE Integrator one pager: seamless integrations with legacy and modern systems.",
+            caption: "Integrator",
+          },
+          {
+            src: "/blaze-onepager-oasis.webp",
+            alt: "FSS BLAZE Oasis one pager: data to intelligent insights from spoken language.",
+            caption: "Oasis",
+          },
+          {
+            src: "/blaze-onepager-cosmos.webp",
+            alt: "FSS Cosmos AI now powered on FSS BLAZE one pager.",
+            caption: "Cosmos",
+          },
+          {
+            src: "/blaze-onepager-studiodev.webp",
+            alt: "FSS BLAZE Studio for developers one pager: low-code platform to build enterprise-grade payment apps faster.",
+            caption: "Studio for Developers",
           },
         ]}
       />
@@ -72,11 +88,19 @@ export default function BlazePlatform() {
 
       <CaseStudyVideo
         index="03"
-        label="Launch Teaser"
-        caption="03 · The BLAZE launch teaser, built to stop a banker mid-scroll."
+        label="Platform Teaser"
+        caption="03 · The FSS BLAZE launch teaser, built to stop a banker mid-scroll."
         src="/blaze-ad-teaser.mp4"
         poster="/blaze-ad-poster.webp"
         maxWidth={680}
+      />
+
+      <CaseStudyImage
+        index="03"
+        label="Print Campaign"
+        caption="The FSS BLAZE print ad. Now arriving at leading banks in UAE."
+        src="/blaze-printad-full.webp"
+        alt="FSS BLAZE print advertisement: 20,000+ transactions per second, zero compromises, with the four pillar marks above the layered platform render and feature pills."
       />
 
       <CaseStudySection
@@ -92,7 +116,7 @@ export default function BlazePlatform() {
       <CaseStudyVideo
         index="04"
         label="Developer Marketing"
-        caption="04 · BLAZE Studio teaser, aimed at the developers who evaluate the platform."
+        caption="04 · BLAZE Studio for Developers, aimed at the engineers who evaluate the platform."
         src="/blaze-studio-teaser.mp4"
         poster="/blaze-studio-poster.webp"
       />
@@ -125,30 +149,13 @@ export default function BlazePlatform() {
       <CaseStudyBrochure
         index="07"
         label="The Collateral"
-        caption="07 · Powered by FSS BLAZE. The full platform brochure. Swipe or use the arrows."
+        caption="Powered by FSS BLAZE. The full platform brochure. Swipe or use the arrows."
         pageCount={14}
         basePath="/blaze-brochure"
       />
 
-      <CaseStudyMediaGrid
-        index="08"
-        label="More From the Campaign"
-        items={[
-          {
-            src: "",
-            alt: "",
-            caption: "08 · Placeholder. Add a campaign asset here (event, social, OOH).",
-          },
-          {
-            src: "",
-            alt: "",
-            caption: "08 · Placeholder. Add a campaign asset here (PR, carousel, UGC).",
-          },
-        ]}
-      />
-
       <CaseStudyOutcomes
-        index="07"
+        index="08"
         outcomes={[
           { metric: "Rs.500+ Cr", label: "Pipeline targeted" },
           { metric: "6", label: "Tier-1 banks engaged" },
