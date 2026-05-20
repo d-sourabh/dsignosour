@@ -11,7 +11,7 @@ export default function FSSTransformation() {
   return (
     <CaseStudyPage>
       <CaseStudyOpening
-        index="01 / 08"
+        index="01 / 09"
         eyebrow="Case Study · FSS"
         meta="Brand Strategy · Website Transformation · AI Experience · Experiential Marketing"
         statement="Transforming a legacy payments company into an AI-first brand experience built for the next era of financial infrastructure."
@@ -43,10 +43,7 @@ export default function FSSTransformation() {
           "Instead of treating the website as a standalone marketing asset, we treated it as the centrepiece of a larger brand transformation initiative. Every decision was guided by a single objective: make FSS feel unmistakably modern without disconnecting from its credibility in payments.",
           "The visual system moved to a cinematic dark-mode interface built around deep blacks, sharp red accents, motion design, and immersive storytelling. At the same time, we introduced \u201CMerlin,\u201D a multilingual AI assistant designed to make the platform feel intelligent, conversational, and globally accessible. The launch strategy expanded beyond digital into physical experiences, AR activations, AI-powered interactions, and immersive storytelling environments across offices and client touchpoints.",
         ]}
-        video="/fss-merlin.mp4"
-        poster="/fss-merlin-poster.webp"
-        imageAlt="Merlin, the multilingual AI assistant, revealed as the centrepiece of the AI-first brand."
-        placeholder="Merlin — the AI-first brand centrepiece."
+        placeholder="Placeholder for brand strategy framework and AI-first positioning visuals."
         reverse
       />
 
@@ -58,9 +55,7 @@ export default function FSSTransformation() {
           "The website was rebuilt from the ground up with a focus on interaction design, motion systems, and modern enterprise storytelling. Scroll-triggered animations, cinematic transitions, WebGL-driven visual elements, and micro-interactions transformed the browsing experience into something more experiential than informational.",
           "The platform also integrated live martech systems and dynamic content surfaces that continuously pulled whitepapers, demos, and knowledge assets into the experience. Merlin, the multilingual LLM-powered assistant, enabled visitors to interact with the platform in more than 150 languages. Every layer of the experience was designed to reinforce one message: FSS was entering the AI era with confidence and clarity.",
         ]}
-        image="/fss-website-home.webp"
-        imageAlt="The new dark-mode FSS homepage — Powering tech the world banks on."
-        placeholder="The new dark-mode website experience."
+        placeholder="Placeholder for dark-mode website screens and interaction design system."
       />
 
       <CaseStudySection
@@ -71,9 +66,7 @@ export default function FSSTransformation() {
           "To ensure the launch became an organizational moment rather than a marketing announcement, we built a coordinated phygital rollout across Mumbai, Chennai, Dubai, and client-facing environments. Merlin cutouts equipped with QR triggers appeared across offices, linking employees to an AI-generated music video experience.",
           "An AI-powered roaming robot wearing Merlin\u2019s signature red cape interacted with employees in real time, while augmented reality wall installations brought the company\u2019s future-facing narrative to life through smartphone-triggered animations. A touch-sensitive Tesseract cube installation added a science-fiction inspired interactive layer to the experience. For client meetings, sales teams carried matte-black launch kits containing NFC-enabled collateral, AR triggers, and projection-led storytelling experiences.",
         ]}
-        image="/fss-phygital-launch.webp"
-        imageAlt="A Merlin standee with Smarter with AI branding from the in-office phygital launch activation."
-        placeholder="Phygital launch activation across offices."
+        placeholder="Placeholder for AR wall installations, Merlin robot interactions, and Tesseract cube visuals."
         reverse
       />
 
@@ -85,9 +78,7 @@ export default function FSSTransformation() {
           "The rollout strategy was customized across clients, regulators, employees, and prospective talent audiences. LinkedIn campaigns targeted banking and payments leaders across Mumbai, Dubai, and Riyadh using localized storytelling experiences and region-aware landing pages. Merlin greeted users contextually, while the site dynamically surfaced relevant platform capabilities and thought leadership content.",
           "Internally, employees were introduced to the launch through teaser campaigns, QR-driven interactions, and synchronized office activations leading into the CEO town hall and global website reveal. The objective was to convert employees into active brand participants instead of passive observers. This transformed the launch into a collective organizational experience that extended far beyond the website itself.",
         ]}
-        image="/fss-campaign.webp"
-        imageAlt="The Powering tech the world banks on campaign creative used across the launch rollout."
-        placeholder="Campaign creative across the rollout."
+        placeholder="Placeholder for LinkedIn campaign creatives, launch kits, and employee engagement visuals."
       />
 
       <CaseStudySection
@@ -98,9 +89,7 @@ export default function FSSTransformation() {
           "Executing the launch required capabilities that did not previously exist within the marketing function. The team worked with emerging technologies including WebGL environments, multilingual LLM systems, web-based augmented reality, and AI-assisted physical installations. To operationalize this, a two-week capability sprint was conducted with external specialists to train internal teams across production, prompting, interaction management, and activation workflows.",
           "A hub-and-spoke execution model ensured synchronization across Mumbai, Chennai, Dubai, and client-facing deployments. Shared messaging systems, centralized launch governance, and rapid-response micro teams allowed the experience to remain consistent across digital, physical, and social channels simultaneously.",
         ]}
-        image="/fss-operating-layer.webp"
-        imageAlt="Hub-and-spoke launch execution model linking a central launch governance hub to Mumbai, Chennai, Dubai, and client-facing teams over a band of new capabilities."
-        placeholder="Hub-and-spoke launch execution across four hubs."
+        placeholder="Placeholder for launch operations workflow and cross-location coordination diagrams."
         reverse
       />
 
@@ -115,9 +104,9 @@ export default function FSSTransformation() {
       />
 
       <NextCaseStudy
-        number="02 / 08"
-        route="/work/gtm-narratives"
-        title="Building GTM Narratives Across a Payments Ecosystem"
+        number="02 / 09"
+        route="/work/blaze-platform"
+        title="Positioning and Launching FSS BLAZE"
       />
     </CaseStudyPage>
   );

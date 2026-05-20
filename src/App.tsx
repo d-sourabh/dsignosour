@@ -4,6 +4,7 @@ import { useEffect } from "react";
 
 import Home from "@/pages/Home";
 import FSSTransformation from "@/pages/FSSTransformation";
+import BlazePlatform from "@/pages/BlazePlatform";
 import GTMNarratives from "@/pages/GTMNarratives";
 import SimplyPayments from "@/pages/SimplyPayments";
 import InnovationLab from "@/pages/InnovationLab";
@@ -29,6 +30,7 @@ export default function App() {
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
           <Route path="/work/fss-transformation" element={<FSSTransformation />} />
+          <Route path="/work/blaze-platform" element={<BlazePlatform />} />
           <Route path="/work/gtm-narratives" element={<GTMNarratives />} />
           <Route path="/work/simply-payments" element={<SimplyPayments />} />
           <Route path="/work/innovation-lab" element={<InnovationLab />} />

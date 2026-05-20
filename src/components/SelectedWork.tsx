@@ -39,6 +39,21 @@ const CASE_STUDIES: CaseStudy[] = [
   },
   {
     number: "02",
+    route: "/work/blaze-platform",
+    title: "Positioning and Launching FSS BLAZE",
+    description:
+      "Taking a microservices payments platform no one understood and turning it into a category banks wanted to buy into, through positioning, brand architecture, and sales enablement.",
+    metadata: "Product Marketing · Positioning · Brand Architecture · Sales Enablement",
+    placeholder: "Placeholder for the FSS BLAZE platform.",
+    thumbnail: "/blaze-thumbnail.webp",
+    impacts: [
+      { value: "Rs.500+ Cr", label: "Pipeline targeted" },
+      { value: "6", label: "Tier-1 banks" },
+      { value: "30+", label: "Banks in talks" },
+    ],
+  },
+  {
+    number: "03",
     route: "/work/gtm-narratives",
     title: "Building GTM Narratives Across a Payments Ecosystem",
     description:
@@ -53,7 +68,7 @@ const CASE_STUDIES: CaseStudy[] = [
     ],
   },
   {
-    number: "03",
+    number: "04",
     route: "/work/simply-payments",
     title: "Scaling Simply Payments as an Industry Recognized Brand IP",
     description:
@@ -67,7 +82,7 @@ const CASE_STUDIES: CaseStudy[] = [
     ],
   },
   {
-    number: "04",
+    number: "05",
     route: "/work/innovation-lab",
     title: "Designing Experimental Brand Experiences",
     description:
@@ -81,7 +96,7 @@ const CASE_STUDIES: CaseStudy[] = [
     ],
   },
   {
-    number: "05",
+    number: "06",
     route: "/work/customer-voice",
     title: "Building a Customer Voice System Across 34 Accounts",
     description:
@@ -96,7 +111,7 @@ const CASE_STUDIES: CaseStudy[] = [
     ],
   },
   {
-    number: "06",
+    number: "07",
     title: "The FSS AI Masterclass",
     description:
       "Designing a C-suite AI education programme for banking executives, anchored in original frameworks and faculty-led conversations.",
@@ -105,7 +120,7 @@ const CASE_STUDIES: CaseStudy[] = [
     inProgress: true,
   },
   {
-    number: "07",
+    number: "08",
     title: "CXO Relationship Marketing",
     description:
       "Building a passion-led relationship programme for senior banking executives across Mumbai and Dubai, organised around cricket, golf, ghazals, and the arts.",
@@ -114,7 +129,7 @@ const CASE_STUDIES: CaseStudy[] = [
     inProgress: true,
   },
   {
-    number: "08",
+    number: "09",
     title: "The Payments Unheard Podcast",
     description:
       "Building a CXO-grade audio property exploring legacy systems, digital expectations, and the future of payments infrastructure.",

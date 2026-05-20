@@ -11,7 +11,7 @@ export default function InnovationLab() {
   return (
     <CaseStudyPage>
       <CaseStudyOpening
-        index="04 / 08"
+        index="05 / 09"
         eyebrow="Case Study · Innovation Lab"
         meta="Innovation · AI · AR · Experiments"
         statement="Designing experimental systems for modern brand storytelling."
@@ -87,7 +87,7 @@ export default function InnovationLab() {
       />
 
       <NextCaseStudy
-        number="05 / 08"
+        number="06 / 09"
         route="/work/customer-voice"
         title="Building a Customer Voice System Across 34 Accounts"
       />

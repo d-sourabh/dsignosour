@@ -11,7 +11,7 @@ export default function CustomerVoice() {
   return (
     <CaseStudyPage>
       <CaseStudyOpening
-        index="05 / 08"
+        index="06 / 09"
         eyebrow="Case Study · Customer Voice & CXX Week"
         meta="CSAT & NPS · Qualtrics · Customer Analytics · Executive Engagement"
         statement="Turning scattered customer feedback into a system that leadership could act on."
@@ -97,7 +97,7 @@ export default function CustomerVoice() {
       />
 
       <NextCaseStudy
-        number="01 / 08"
+        number="01 / 09"
         route="/work/fss-transformation"
         title="Repositioning FSS for the AI Era"
       />
