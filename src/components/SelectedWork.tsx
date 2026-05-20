@@ -55,7 +55,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     number: "03",
     route: "/work/simply-payments",
-    title: "Building an Industry Narrative Platform",
+    title: "Scaling Simply Payments Into a Narrative Platform",
     description:
       "Scaling Simply Payments from a niche CXO gathering into a recognised fintech ecosystem platform.",
     metadata: "Executive Marketing · Community · Events",

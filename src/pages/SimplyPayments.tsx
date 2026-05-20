@@ -14,7 +14,7 @@ export default function SimplyPayments() {
         index="03 / 08"
         eyebrow="Case Study · Simply Payments"
         meta="Executive Marketing · Community · Events · Narrative Strategy"
-        statement="Building an executive fintech narrative platform from the ground up."
+        statement="Scaling Simply Payments into an executive fintech narrative platform."
       />
 
       <CaseStudySection
