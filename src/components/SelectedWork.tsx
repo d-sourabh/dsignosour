@@ -138,6 +138,7 @@ const CASE_STUDIES: CaseStudy[] = [
       "Building a CXO-grade audio property exploring legacy systems, digital expectations, and the future of payments infrastructure.",
     metadata: "Editorial Brand · Podcast · CXO Audience",
     placeholder: "Placeholder for podcast cover and episode visuals.",
+    thumbnail: "/payments-unheard-thumbnail.webp",
     inProgress: true,
   },
 ];

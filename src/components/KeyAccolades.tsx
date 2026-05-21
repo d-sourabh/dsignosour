@@ -11,13 +11,15 @@ interface Accolade {
 
 const ACCOLADES: Accolade[] = [
   {
-    title: "Runner-Up, RBI NCMC Ideathon",
+    title: "Runner-Up, NPCI NCMC Ideathon",
     detail:
-      "A national-level RBI competition, for the NCMC Karmanya Card: One Nation, One Workforce, integrating public transit, workplace access, and everyday transactions for the working population.",
+      "A national-level NPCI competition, for the NCMC Karmanya Card: One Nation, One Workforce, integrating public transit, workplace access, and everyday transactions for the working population.",
+    image: "/accolade-01-npci.webp",
   },
   {
     title: "Best Campaign Award, FSS BLAZE",
     detail: "E4M Marketing Awards, 2024.",
+    image: "/accolade-02-blaze.webp",
   },
   {
     title: "Digital Dragons Award, 2025",
