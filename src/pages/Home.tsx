@@ -3,6 +3,7 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import AboutMe from "@/components/AboutMe";
 import SelectedWork from "@/components/SelectedWork";
+import KeyAccolades from "@/components/KeyAccolades";
 import Footer from "@/components/Footer";
 import AmbientAudio from "@/components/AmbientAudio";
 
@@ -25,6 +26,7 @@ export default function Home() {
 
       <AboutMe />
       <SelectedWork />
+      <KeyAccolades />
       <Footer />
       <AmbientAudio />
     </motion.main>
