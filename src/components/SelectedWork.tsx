@@ -84,16 +84,16 @@ const CASE_STUDIES: CaseStudy[] = [
   },
   {
     number: "05",
-    route: "/work/innovation-lab",
-    title: "Designing Experimental Brand Experiences",
+    route: "/work/fss-atm",
+    title: "Reframing ATM Managed Services as Transformation",
     description:
-      "Exploring AI, AR, interactive systems, and immersive storytelling in modern B2B marketing.",
-    metadata: "Innovation · AI · AR · Experiments",
-    placeholder: "Placeholder for AI-powered experience showcase.",
+      "Rebuilding a commoditised ATM managed-services category into a four-part transformation story that moved banks from cost centre to customer delight centre.",
+    metadata: "Product Marketing · Category Narrative · Positioning · Sales Enablement",
+    placeholder: "Placeholder for the FSS ATM managed-services story.",
     impacts: [
-      { value: "12", label: "Experiments" },
-      { value: "4", label: "Platforms" },
-      { value: "6", label: "Categories" },
+      { value: "25K", label: "ATMs managed" },
+      { value: "12%", label: "Market share" },
+      { value: "4", label: "Maturity pillars" },
     ],
   },
   {

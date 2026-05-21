@@ -28,7 +28,7 @@ export default function SimplyPayments() {
         video="/sp-aftermovie.mp4"
         poster="/sp-aftermovie-poster.webp"
         imageAlt="Aftermovie from a Simply Payments edition with senior banking leaders."
-        placeholder="Inside the room — a Simply Payments edition."
+        placeholder="Inside the room: a Simply Payments edition."
       />
 
       <PullStatement>
@@ -74,7 +74,7 @@ export default function SimplyPayments() {
         video="/sp-media-amplification.mp4"
         poster="/sp-media-amplification-poster.webp"
         imageAlt="Highlights from the Simply Payments x Economic Times televised series."
-        placeholder="The room, amplified — the ET series."
+        placeholder="The room, amplified: the ET series."
         reverse
       />
 
@@ -98,8 +98,8 @@ export default function SimplyPayments() {
         ]}
         video="/sp-dubai.mp4"
         poster="/sp-dubai-poster.webp"
-        imageAlt="The Simply Payments Dubai edition invite — Smarter with AI."
-        placeholder="A second city — the Dubai edition."
+        imageAlt="The Simply Payments Dubai edition invite: Smarter with AI."
+        placeholder="A second city: the Dubai edition."
         reverse
       />
 
@@ -115,8 +115,8 @@ export default function SimplyPayments() {
 
       <NextCaseStudy
         number="05 / 09"
-        route="/work/innovation-lab"
-        title="Designing Experimental Brand Experiences"
+        route="/work/fss-atm"
+        title="Reframing ATM Managed Services as Transformation"
       />
     </CaseStudyPage>
   );
