@@ -39,7 +39,7 @@ const BRANDS = [
   "Setu",
 ];
 
-// Placeholder quotes — Sourabh will swap with his own picks.
+// Placeholder quotes: Sourabh will swap with his own picks.
 // Mix of voices: behavioural econ, classic copy, management, modern marketing, advertising craft.
 const PHILOSOPHY_QUOTES = [
   {
@@ -108,7 +108,7 @@ function PhilosophyCarousel() {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      {/* Thin auto-advance progress bar — reseeds with each quote, makes the timing visible */}
+      {/* Thin auto-advance progress bar: reseeds with each quote, makes the timing visible */}
       <div className="absolute top-0 left-0 right-0 h-px bg-white/[0.04] overflow-hidden">
         {!paused && (
           <motion.div
@@ -274,7 +274,7 @@ export default function AboutMe() {
           <div className="mt-auto pt-6 border-t border-white/[0.08] flex flex-col gap-3">
             <div className="flex items-center gap-3">
               <span className="text-[10px] uppercase tracking-wide text-muted-foreground/70 w-[78px] shrink-0">
-                2022 – Now
+                2021 – Now
               </span>
               <Sparkle
                 className="h-2.5 w-2.5 text-muted-foreground/60 shrink-0"
@@ -286,7 +286,7 @@ export default function AboutMe() {
             </div>
             <div className="flex items-center gap-3">
               <span className="text-[10px] uppercase tracking-wide text-muted-foreground/70 w-[78px] shrink-0">
-                2018 – 2020
+                2019 – 2021
               </span>
               <Sparkle
                 className="h-2.5 w-2.5 text-muted-foreground/60 shrink-0"
