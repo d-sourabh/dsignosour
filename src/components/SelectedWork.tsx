@@ -85,9 +85,9 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     number: "05",
     route: "/work/fss-atm",
-    title: "Reframing ATM Managed Services as Transformation",
+    title: "Building a Growth Story for a Saturated ATM Business",
     description:
-      "Rebuilding a commoditised ATM managed-services category into a four-part transformation story that moved banks from cost centre to customer delight centre.",
+      "Reviving growth in a saturated, slow-growth ATM managed-services business by reframing a commoditised category into a four-part transformation banks would invest in.",
     metadata: "Product Marketing · Category Narrative · Positioning · Sales Enablement",
     placeholder: "Placeholder for the FSS ATM managed-services story.",
     thumbnail: "/atm-thumbnail.webp",

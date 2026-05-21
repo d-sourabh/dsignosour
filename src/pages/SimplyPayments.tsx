@@ -116,7 +116,7 @@ export default function SimplyPayments() {
       <NextCaseStudy
         number="05 / 09"
         route="/work/fss-atm"
-        title="Reframing ATM Managed Services as Transformation"
+        title="Building a Growth Story for a Saturated ATM Business"
       />
     </CaseStudyPage>
   );

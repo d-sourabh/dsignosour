@@ -14,16 +14,16 @@ export default function FSSATM() {
         index="05 / 09"
         eyebrow="Case Study · FSS ATM"
         meta="Product Marketing · Category Narrative · Positioning · Sales Enablement"
-        statement="Repositioning ATM managed services from a reactive cost centre into a four-part transformation story that banks could buy into."
+        statement="Building a growth story for a saturated ATM managed-services business that had stopped growing, by turning a commoditised, price-driven category into a four-part transformation banks would invest in."
       />
 
       <CaseStudySection
         index="01"
-        label="The Category Problem"
-        heading="ATM managed services had become a price conversation. The story had to change the question."
+        label="The Growth Problem"
+        heading="A mature business that had stopped growing, defending share in a price war."
         body={[
-          "For most banks the ATM had quietly turned into a cost centre and a compliance liability: downtime penalties, RBI mandates, cash-out risk, and fraud exposure. The managed-services market serving them was crowded and commoditised, a field of vendors competing largely on price and headcount. FSS held real strength, around 25,000 ATMs and roughly 12% market share as one of India's largest providers, but the category rewarded whoever was cheaper, not whoever was better.",
-          "This was a positioning problem before it was a demand problem. FSS could not win a race to the bottom on a service line. The work was to reframe the category itself: move the conversation from \u201Cwho manages our ATMs for less\u201D to \u201Cwho turns our ATM estate from a cost centre into a customer delight centre,\u201D and to give that reframe a structure a bank could follow and a sales team could carry.",
+          "ATM managed services had matured into a saturated, slow-growth business. The market was crowded and commoditised, a field of vendors competing largely on price and headcount, and FSS's own ATM line, around 25,000 ATMs and roughly 12% market share as one of India's largest providers, had plateaued along with it. For banks the ATM had quietly become a cost centre and a compliance liability, downtime penalties, RBI mandates, cash-out risk, and fraud exposure, which only deepened the pressure to spend less rather than invest more.",
+          "Defending share in a price war was not a growth plan. This was a positioning problem before it was a demand problem: FSS could not grow by being cheaper. The work was to reframe the category itself, moving the conversation from \u201Cwho manages our ATMs for less\u201D to \u201Cwho turns our ATM estate from a cost centre into a customer delight centre,\u201D and to give that reframe a structure that reopened a growth conversation a bank would invest in.",
         ]}
         image="/atm-overview.webp"
         imageAlt="Composite overview of the Indian ATM market, the downtime and cost-centre problem, and the technology layers combating it."
