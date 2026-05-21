@@ -114,12 +114,12 @@ const CASE_STUDIES: CaseStudy[] = [
   },
   {
     number: "07",
-    title: "The FSS AI Masterclass",
+    route: "/work/content-engine",
+    title: "Building a Full-Stack Content Engine",
     description:
-      "Designing a C-suite AI education programme for banking executives, anchored in original frameworks and faculty-led conversations.",
-    metadata: "Executive Education · AI · Programme Design",
-    placeholder: "Placeholder for masterclass curriculum and brand visuals.",
-    inProgress: true,
+      "Built and operated an end-to-end fintech content ecosystem spanning product storytelling, social media, thought leadership, design, video, distribution, and performance marketing.",
+    metadata: "Content Strategy · Product Marketing · Social Media · Demand Generation",
+    placeholder: "Placeholder for content ecosystem operating model visualisation.",
   },
   {
     number: "08",
