@@ -89,7 +89,7 @@ export default function GTMNarratives() {
       <CaseStudyOutcomes
         index="06"
         outcomes={[
-          { metric: "5", label: "Product Lines Repositioned" },
+          { metric: "15+", label: "Products Taken to Market" },
           { metric: "3", label: "Regional GTM Playbooks" },
           { metric: "4", label: "Buyer Archetypes Operationalised" },
           { metric: "12+", label: "Priority Bank Pipelines Activated" },

@@ -62,7 +62,7 @@ const CASE_STUDIES: CaseStudy[] = [
     placeholder: "Placeholder for product ecosystem diagram.",
     thumbnail: "/gtm-thumbnail.webp",
     impacts: [
-      { value: "5+", label: "Products" },
+      { value: "15+", label: "Products" },
       { value: "18", label: "Markets" },
       { value: "12", label: "Launches" },
     ],
