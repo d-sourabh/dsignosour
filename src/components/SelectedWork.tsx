@@ -120,6 +120,7 @@ const CASE_STUDIES: CaseStudy[] = [
       "Built and operated an end-to-end fintech content ecosystem spanning product storytelling, social media, thought leadership, design, video, distribution, and performance marketing.",
     metadata: "Content Strategy · Product Marketing · Social Media · Demand Generation",
     placeholder: "Placeholder for content ecosystem operating model visualisation.",
+    thumbnail: "/content-engine-thumbnail.webp",
   },
   {
     number: "08",
