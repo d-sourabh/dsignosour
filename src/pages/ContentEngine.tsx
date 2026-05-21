@@ -25,7 +25,9 @@ export default function ContentEngine() {
           "As FSS expanded across payments, banking infrastructure, platform products, and AI-led transformation initiatives, the demand for content increased across every business function simultaneously. Product teams needed sharper positioning. Sales teams required stronger collateral. Leadership wanted visibility in conversations around AI, digital transformation, and modern payments. Social channels demanded a constant stream of relevant and high-quality storytelling.",
           "The challenge was not simply producing more assets. It was creating a connected ecosystem where every blog, website page, whitepaper, campaign, sales deck, and social post strengthened the same strategic narrative. The organisation needed a content system that could move seamlessly between thought leadership, product marketing, demand generation, and brand storytelling without becoming fragmented.",
         ]}
-        placeholder="Fragmented versus unified content ecosystem."
+        image="/content-engine-overview.webp"
+        imageAlt="The content ecosystem operating model: an AI-augmented system with SMEs and leadership at the core, every content type arranged around it, and distribution channels on the outer ring spanning strategy, creation, scale, and distribution."
+        placeholder="One AI-augmented operating model across strategy, creation, scale, and distribution."
       />
 
       <PullStatement>
@@ -80,7 +82,9 @@ export default function ContentEngine() {
           "The focus was on making fintech storytelling more engaging without sacrificing strategic depth. Technical subjects such as AI in banking, payment modernisation, platform transformation, and digital infrastructure were translated into formats optimised for discoverability, retention, and audience interaction.",
           "Because strategy, design, and execution existed within the same operating layer, campaigns could move rapidly from insight to production to distribution without fragmentation between teams.",
         ]}
-        placeholder="LinkedIn campaigns, ad creatives, and social performance."
+        image="/content-engine-linkedin.webp"
+        imageAlt="The LinkedIn demand engine: a funnel from target audiences, institutions, geographies, and content themes through organic, sponsored, lead-gen, and retargeting activation into brand awareness, audience engagement, qualified leads, and pipeline growth."
+        placeholder="The LinkedIn demand engine, from audience and message to pipeline."
       />
 
       <CaseStudySection
