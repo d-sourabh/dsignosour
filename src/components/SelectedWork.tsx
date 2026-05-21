@@ -90,6 +90,7 @@ const CASE_STUDIES: CaseStudy[] = [
       "Rebuilding a commoditised ATM managed-services category into a four-part transformation story that moved banks from cost centre to customer delight centre.",
     metadata: "Product Marketing · Category Narrative · Positioning · Sales Enablement",
     placeholder: "Placeholder for the FSS ATM managed-services story.",
+    thumbnail: "/atm-thumbnail.webp",
     impacts: [
       { value: "25K", label: "ATMs managed" },
       { value: "12%", label: "Market share" },
