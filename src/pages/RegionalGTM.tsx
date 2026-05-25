@@ -7,6 +7,9 @@ import Navigation from "@/components/Navigation";
 
 const R = "#C8102E";
 
+// Shorthand labels for the sticky nav, matching CASES order
+const SHORTS = ["AFR", "IN", "IN", "IN", "ME", "PH", "EU", "SEA", "AI"];
+
 // ── Types ──────────────────────────────────────────────────────────────────
 
 type Metric   = { value: string; label: string };
@@ -448,7 +451,7 @@ const CASES: GTMCase[] = [
 function StickyNav({ active, onSelect }: { active: number; onSelect: (i: number) => void }) {
   return (
     <nav
-      className="fixed right-5 top-1/2 -translate-y-1/2 z-[200] hidden xl:flex flex-col gap-0.5 p-2.5 rounded-2xl"
+      className="fixed right-5 top-1/2 -translate-y-1/2 z-[200] hidden xl:flex flex-col gap-0.5 p-2.5 rounded-2xl opacity-0 hover:opacity-100 transition-opacity duration-300"
       style={{
         background: "rgba(0,0,0,0.72)",
         backdropFilter: "blur(12px)",
@@ -476,7 +479,7 @@ function StickyNav({ active, onSelect }: { active: number; onSelect: (i: number)
               i === active ? "text-white" : "text-white/35"
             }`}
           >
-            {c.region}
+            {SHORTS[i]}
           </span>
           <span
             className="ml-auto shrink-0 rounded-full transition-all duration-300"
