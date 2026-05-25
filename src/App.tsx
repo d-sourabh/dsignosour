@@ -11,6 +11,7 @@ import FSSATM from "@/pages/FSSATM";
 import CustomerVoice from "@/pages/CustomerVoice";
 import RegionalGTM from "@/pages/RegionalGTM";
 import ContentEngine from "@/pages/ContentEngine";
+import Mascot from "@/components/Mascot";
 import Thinking from "@/pages/Thinking";
 import Experiments from "@/pages/Experiments";
 
@@ -28,6 +29,7 @@ export default function App() {
   return (
     <>
       <ScrollToTop />
+      <Mascot />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
