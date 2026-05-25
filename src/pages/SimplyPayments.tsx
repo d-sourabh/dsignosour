@@ -11,7 +11,7 @@ export default function SimplyPayments() {
   return (
     <CaseStudyPage>
       <CaseStudyOpening
-        index="04 / 09"
+        index="05 / 09"
         eyebrow="Case Study · Simply Payments"
         meta="Executive Marketing · Community · Events · Narrative Strategy"
         statement="Scaling Simply Payments as an industry recognized brand IP."
@@ -114,7 +114,7 @@ export default function SimplyPayments() {
       />
 
       <NextCaseStudy
-        number="05 / 09"
+        number="06 / 09"
         route="/work/fss-atm"
         title="Building a Growth Story for a Saturated ATM Business"
       />

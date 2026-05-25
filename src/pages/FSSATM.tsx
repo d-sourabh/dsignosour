@@ -11,7 +11,7 @@ export default function FSSATM() {
   return (
     <CaseStudyPage>
       <CaseStudyOpening
-        index="05 / 09"
+        index="06 / 09"
         eyebrow="Case Study · FSS ATM"
         meta="Product Marketing · Category Narrative · Positioning · Sales Enablement"
         statement="Building a growth story for a saturated ATM managed-services business that had stopped growing, by turning a commoditised, price-driven category into a four-part transformation banks would invest in."
@@ -114,7 +114,7 @@ export default function FSSATM() {
       />
 
       <NextCaseStudy
-        number="06 / 09"
+        number="07 / 09"
         route="/work/customer-voice"
         title="Building a Customer Voice System Across 34 Accounts"
       />

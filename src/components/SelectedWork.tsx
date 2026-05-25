@@ -21,8 +21,7 @@ interface CaseStudy {
   thumbnail?: string;
 }
 
-const CASE_STUDIES: CaseStudy[] = [
-  {
+const CASE_STUDIES: CaseStudy[] = [  {
     number: "01",
     route: "/work/fss-transformation",
     title: "Repositioning FSS for the AI Era",
@@ -54,6 +53,15 @@ const CASE_STUDIES: CaseStudy[] = [
   },
   {
     number: "03",
+    route: "/work/regional-gtm",
+    title: "Nine Campaigns. Six Markets.",
+    description:
+      "Region-specific GTM playbooks across Africa, India, the Middle East, the Philippines, Europe, South East Asia, and the AI frontier, each built around a different buyer, barrier, and strategy.",
+    metadata: "Regional GTM · Campaign Strategy · Product Marketing · Demand Generation",
+    placeholder: "Placeholder for regional GTM map visual.",
+  },
+  {
+    number: "04",
     route: "/work/gtm-narratives",
     title: "Building GTM Narratives Across a Payments Ecosystem",
     description:
@@ -68,7 +76,7 @@ const CASE_STUDIES: CaseStudy[] = [
     ],
   },
   {
-    number: "04",
+    number: "05",
     route: "/work/simply-payments",
     title: "Scaling Simply Payments as an Industry Recognized Brand IP",
     description:
@@ -83,7 +91,7 @@ const CASE_STUDIES: CaseStudy[] = [
     ],
   },
   {
-    number: "05",
+    number: "06",
     route: "/work/fss-atm",
     title: "Building a Growth Story for a Saturated ATM Business",
     description:
@@ -98,7 +106,7 @@ const CASE_STUDIES: CaseStudy[] = [
     ],
   },
   {
-    number: "06",
+    number: "07",
     route: "/work/customer-voice",
     title: "Building a Customer Voice System Across 34 Accounts",
     description:
@@ -113,7 +121,7 @@ const CASE_STUDIES: CaseStudy[] = [
     ],
   },
   {
-    number: "07",
+    number: "08",
     route: "/work/content-engine",
     title: "Building a Full-Stack Content Engine",
     description:
@@ -121,15 +129,6 @@ const CASE_STUDIES: CaseStudy[] = [
     metadata: "Content Strategy · Product Marketing · Social Media · Demand Generation",
     placeholder: "Placeholder for content ecosystem operating model visualisation.",
     thumbnail: "/content-engine-thumbnail.webp",
-  },
-  {
-    number: "08",
-    route: "/work/regional-gtm",
-    title: "Nine Campaigns. Six Markets.",
-    description:
-      "Region-specific GTM playbooks across Africa, India, the Middle East, the Philippines, Europe, South East Asia, and the AI frontier, each built around a different buyer, barrier, and strategy.",
-    metadata: "Regional GTM · Campaign Strategy · Product Marketing · Demand Generation",
-    placeholder: "Placeholder for regional GTM map visual.",
   },
   {
     number: "09",

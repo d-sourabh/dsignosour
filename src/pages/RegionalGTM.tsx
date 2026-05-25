@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
+
+// ── Accent colour ──────────────────────────────────────────────────────────
+
+const R = "#C8102E";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -29,10 +34,6 @@ type GTMCase = {
   insight: string;
   listings: string[];
 };
-
-// ── Accent colour ──────────────────────────────────────────────────────────
-
-const R = "#C8102E";
 
 // ── Data ───────────────────────────────────────────────────────────────────
 
@@ -446,23 +447,43 @@ const CASES: GTMCase[] = [
 
 function StickyNav({ active, onSelect }: { active: number; onSelect: (i: number) => void }) {
   return (
-    <nav className="fixed right-6 top-1/2 -translate-y-1/2 z-50 hidden xl:flex flex-col gap-3">
+    <nav
+      className="fixed right-5 top-1/2 -translate-y-1/2 z-[200] hidden xl:flex flex-col gap-0.5 p-2.5 rounded-2xl"
+      style={{
+        background: "rgba(0,0,0,0.72)",
+        backdropFilter: "blur(12px)",
+        border: "1px solid rgba(255,255,255,0.10)",
+      }}
+    >
       {CASES.map((c, i) => (
         <button
           key={c.id}
           onClick={() => onSelect(i)}
-          title={`${c.num} \u00b7 ${c.region}`}
-          className="group flex items-center gap-2 cursor-pointer"
+          title={c.headline}
+          className={`flex items-center gap-2.5 px-3 py-2 rounded-xl cursor-pointer transition-all duration-200 text-left w-full ${
+            i === active ? "bg-white/20" : "hover:bg-white/10"
+          }`}
         >
-          <span className="text-[9px] font-mono text-white/20 group-hover:text-white/50 transition-colors tabular-nums">
+          <span
+            className={`font-mono text-[10px] tabular-nums w-5 shrink-0 ${
+              i === active ? "text-white" : "text-white/40"
+            }`}
+          >
             {c.num}
           </span>
           <span
-            className="block rounded-full transition-all duration-300"
+            className={`font-mono text-[10px] tracking-wider uppercase leading-none ${
+              i === active ? "text-white" : "text-white/35"
+            }`}
+          >
+            {c.region}
+          </span>
+          <span
+            className="ml-auto shrink-0 rounded-full transition-all duration-300"
             style={{
-              width: i === active ? 20 : 6,
-              height: 6,
-              backgroundColor: i === active ? "#fff" : "rgba(255,255,255,0.2)",
+              width: i === active ? 6 : 4,
+              height: i === active ? 6 : 4,
+              background: i === active ? R : "rgba(255,255,255,0.18)",
             }}
           />
         </button>
@@ -473,168 +494,198 @@ function StickyNav({ active, onSelect }: { active: number; onSelect: (i: number)
 
 // ── Case Block ─────────────────────────────────────────────────────────────
 
-function CaseBlock({ c }: { c: GTMCase }) {
+function CaseBlock({ c, index }: { c: GTMCase; index: number }) {
   return (
-    <section id={`case-${c.id}`} className="border-t border-white/[0.06] pt-16 pb-20">
+    <section
+      id={`case-${c.id}`}
+      className="sticky mx-3 sm:mx-5"
+      style={{ top: 80, zIndex: 10 + index }}
+    >
+      <div
+        className="rounded-3xl overflow-hidden"
+        style={{
+          background: "#fff",
+          boxShadow: "0 -20px 80px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,0,0,0.06)",
+        }}
+      >
+        <div className="px-8 sm:px-12 lg:px-16 pt-12 pb-16">
 
-      {/* Section divider */}
-      <div className="flex items-baseline gap-6 mb-12">
-        <span className="text-[10px] font-mono tracking-[0.3em] text-muted-foreground/40 tabular-nums">{c.num}</span>
-        <h2
-          className="text-5xl sm:text-6xl lg:text-7xl text-foreground leading-none flex-1"
-          style={{ fontFamily: "'Instrument Serif', serif" }}
-        >
-          {c.region}
-        </h2>
-        <span className="text-[10px] font-mono tracking-[0.15em] text-muted-foreground/30 hidden sm:block">{c.geo}</span>
-      </div>
-
-      {/* Header: headline + metrics */}
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-10 mb-12">
-        <div>
-          <h3
-            className="text-2xl sm:text-3xl text-foreground leading-snug mb-4"
-            style={{ fontFamily: "'Instrument Serif', serif" }}
-          >
-            {c.headline}
-          </h3>
-          <p
-            className="text-base text-muted-foreground leading-relaxed mb-6 border-l-2 pl-4"
-            style={{ borderColor: R }}
-          >
-            {c.tagline}
-          </p>
-          <div className="flex flex-wrap gap-2">
-            {c.tags.map((t) => (
-              <span key={t} className="text-[10px] font-mono tracking-[0.08em] px-2.5 py-1 bg-white/[0.04] border border-white/[0.06] text-muted-foreground rounded-sm">
-                {t}
-              </span>
-            ))}
+          {/* Region header */}
+          <div className="flex items-baseline gap-6 mb-10 border-b border-gray-100 pb-8">
+            <span className="text-[10px] font-mono tracking-[0.3em] text-gray-300 tabular-nums">{c.num}</span>
+            <h2
+              className="text-5xl sm:text-6xl lg:text-7xl text-gray-900 leading-none flex-1"
+              style={{ fontFamily: "'Instrument Serif', serif" }}
+            >
+              {c.region}
+            </h2>
+            <span className="text-[10px] font-mono tracking-[0.12em] text-gray-300 hidden sm:block">{c.geo}</span>
           </div>
-        </div>
 
-        {/* Metrics card */}
-        <div className="rounded-lg border border-white/[0.08] bg-white/[0.025] p-6 self-start">
-          <span className="block text-[10px] font-mono tracking-[0.2em] uppercase mb-4" style={{ color: R }}>
-            {c.metricsTitle}
-          </span>
-          {c.metrics.map((m) => (
-            <div key={m.label} className="py-3 border-b border-white/[0.05] last:border-0 last:pb-0">
-              <div
-                className="text-xl text-foreground leading-none mb-1"
+          {/* Headline + metrics card */}
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-10 mb-12">
+            <div>
+              <h3
+                className="text-2xl sm:text-3xl text-gray-900 leading-snug mb-5"
                 style={{ fontFamily: "'Instrument Serif', serif" }}
               >
-                {m.value}
+                {c.headline}
+              </h3>
+              <p
+                className="text-base text-gray-500 leading-relaxed mb-6 pl-4 border-l-2"
+                style={{ borderColor: R }}
+              >
+                {c.tagline}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {c.tags.map((t) => (
+                  <span
+                    key={t}
+                    className="text-[10px] font-mono tracking-[0.08em] px-2.5 py-1 bg-gray-100 text-gray-500 rounded-sm border border-gray-200"
+                  >
+                    {t}
+                  </span>
+                ))}
               </div>
-              <div className="text-[10px] font-mono tracking-[0.08em] uppercase text-muted-foreground/60">{m.label}</div>
             </div>
-          ))}
-        </div>
-      </div>
 
-      {/* Problem body */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
-        {c.problems.map((p) => (
-          <div key={p.heading}>
+            {/* Metrics card: dark on white */}
+            <div className="rounded-xl p-6 self-start" style={{ background: "#111" }}>
+              <span
+                className="block text-[10px] font-mono tracking-[0.2em] uppercase mb-4"
+                style={{ color: R }}
+              >
+                {c.metricsTitle}
+              </span>
+              {c.metrics.map((m) => (
+                <div key={m.label} className="py-3 border-b border-white/[0.07] last:border-0 last:pb-0">
+                  <div
+                    className="text-xl text-white leading-none mb-1"
+                    style={{ fontFamily: "'Instrument Serif', serif" }}
+                  >
+                    {m.value}
+                  </div>
+                  <div className="text-[10px] font-mono tracking-[0.08em] uppercase text-white/45">{m.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Problem body */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
+            {c.problems.map((p) => (
+              <div key={p.heading}>
+                <h4
+                  className="text-[10px] font-mono tracking-[0.18em] uppercase mb-4 pb-3 border-b border-gray-200"
+                  style={{ color: R }}
+                >
+                  {p.heading}
+                </h4>
+                {p.paras.map((para, i) => (
+                  <p key={i} className="text-[15px] text-gray-600 leading-relaxed mb-4 last:mb-0">
+                    {para}
+                  </p>
+                ))}
+              </div>
+            ))}
+          </div>
+
+          {/* Execution grid */}
+          <div className="mb-10">
             <h4
-              className="text-[10px] font-mono tracking-[0.18em] uppercase mb-4 pb-3 border-b border-white/[0.06]"
+              className="text-[10px] font-mono tracking-[0.18em] uppercase mb-4 pb-3 border-b border-gray-200"
               style={{ color: R }}
             >
-              {p.heading}
+              {c.execTitle}
             </h4>
-            {p.paras.map((para, i) => (
-              <p key={i} className="text-[15px] text-muted-foreground leading-relaxed mb-4 last:mb-0">
-                {para}
-              </p>
-            ))}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-200">
+              {c.exec.map((item) => (
+                <div key={item.label} className="bg-gray-50 p-6">
+                  <span
+                    className="block text-[10px] font-mono tracking-[0.15em] uppercase mb-2"
+                    style={{ color: R }}
+                  >
+                    {item.label}
+                  </span>
+                  <strong className="block text-sm font-semibold text-gray-900 mb-2 leading-snug">
+                    {item.title}
+                  </strong>
+                  <p className="text-[13px] text-gray-500 leading-relaxed">{item.body}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        ))}
-      </div>
 
-      {/* Execution grid */}
-      <div className="mb-10">
-        <h4
-          className="text-[10px] font-mono tracking-[0.18em] uppercase mb-4 pb-3 border-b border-white/[0.06]"
-          style={{ color: R }}
-        >
-          {c.execTitle}
-        </h4>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/[0.05]">
-          {c.exec.map((item) => (
-            <div key={item.label} className="bg-background p-6">
-              <span className="block text-[10px] font-mono tracking-[0.15em] uppercase mb-2" style={{ color: R }}>
-                {item.label}
-              </span>
-              <strong className="block text-sm font-semibold text-foreground mb-2 leading-snug">{item.title}</strong>
-              <p className="text-[13px] text-muted-foreground leading-relaxed">{item.body}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Pull quote */}
-      {c.quote && (
-        <div className="relative px-10 py-8 mb-10 rounded-sm" style={{ backgroundColor: R }}>
-          <span
-            className="absolute left-5 top-2 text-white/15 leading-none select-none"
-            style={{ fontFamily: "'Instrument Serif', serif", fontSize: 72 }}
-          >
-            &ldquo;
-          </span>
-          <p
-            className="text-white text-xl leading-relaxed relative z-10"
-            style={{ fontFamily: "'Instrument Serif', serif", fontStyle: "italic" }}
-          >
-            {c.quote}
-          </p>
-          {c.quoteAttr && (
-            <span className="block text-white/50 text-[10px] font-mono tracking-[0.15em] uppercase mt-4">{c.quoteAttr}</span>
-          )}
-        </div>
-      )}
-
-      {/* Results strip */}
-      {c.results && (
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/[0.05] mb-10">
-          {c.results.map((r) => (
-            <div key={r.label} className="bg-background px-6 py-5">
-              <div
-                className="text-2xl text-foreground mb-1"
-                style={{ fontFamily: "'Instrument Serif', serif" }}
-              >
-                {r.value}
-              </div>
-              <div className="text-[10px] font-mono tracking-[0.08em] uppercase text-muted-foreground/60">{r.label}</div>
-            </div>
-          ))}
-        </div>
-      )}
-
-      {/* Insight box */}
-      <div className="border border-white/[0.07] rounded-lg p-6 mb-6 bg-white/[0.01]">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="text-[10px] font-mono tracking-[0.2em] uppercase" style={{ color: R }}>
-            Strategic Insight
-          </span>
-          <div className="flex-1 h-px bg-white/[0.06]" />
-        </div>
-        <p className="text-[14px] text-muted-foreground leading-relaxed">{c.insight}</p>
-      </div>
-
-      {/* Listings bar */}
-      <div className="flex items-start gap-4">
-        <span className="text-[9px] font-mono tracking-[0.15em] uppercase text-muted-foreground/40 whitespace-nowrap pt-1.5">
-          Listed On
-        </span>
-        <div className="flex flex-wrap gap-2">
-          {c.listings.map((l) => (
-            <span
-              key={l}
-              className="text-[9px] font-mono tracking-[0.06em] px-2 py-1 border border-white/[0.06] text-muted-foreground/50 rounded-sm"
+          {/* Pull quote */}
+          {c.quote && (
+            <div
+              className="relative px-10 py-8 mb-10 rounded-sm"
+              style={{ backgroundColor: R }}
             >
-              {l}
+              <span
+                className="absolute left-5 top-2 text-white/15 leading-none select-none"
+                style={{ fontFamily: "'Instrument Serif', serif", fontSize: 72 }}
+              >
+                &ldquo;
+              </span>
+              <p
+                className="text-white text-xl leading-relaxed relative z-10"
+                style={{ fontFamily: "'Instrument Serif', serif", fontStyle: "italic" }}
+              >
+                {c.quote}
+              </p>
+              {c.quoteAttr && (
+                <span className="block text-white/50 text-[10px] font-mono tracking-[0.15em] uppercase mt-4">
+                  {c.quoteAttr}
+                </span>
+              )}
+            </div>
+          )}
+
+          {/* Results strip */}
+          {c.results && (
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-gray-200 mb-10">
+              {c.results.map((r) => (
+                <div key={r.label} className="bg-white px-6 py-5">
+                  <div
+                    className="text-2xl text-gray-900 mb-1"
+                    style={{ fontFamily: "'Instrument Serif', serif" }}
+                  >
+                    {r.value}
+                  </div>
+                  <div className="text-[10px] font-mono tracking-[0.08em] uppercase text-gray-400">{r.label}</div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Strategic insight */}
+          <div className="border border-gray-200 rounded-xl p-6 mb-6 bg-gray-50">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-[10px] font-mono tracking-[0.2em] uppercase" style={{ color: R }}>
+                Strategic Insight
+              </span>
+              <div className="flex-1 h-px bg-gray-200" />
+            </div>
+            <p className="text-[14px] text-gray-600 leading-relaxed">{c.insight}</p>
+          </div>
+
+          {/* Listings */}
+          <div className="flex items-start gap-4">
+            <span className="text-[9px] font-mono tracking-[0.15em] uppercase text-gray-300 whitespace-nowrap pt-1.5">
+              Listed On
             </span>
-          ))}
+            <div className="flex flex-wrap gap-2">
+              {c.listings.map((l) => (
+                <span
+                  key={l}
+                  className="text-[9px] font-mono tracking-[0.06em] px-2 py-1 bg-gray-100 border border-gray-200 text-gray-400 rounded-sm"
+                >
+                  {l}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -646,14 +697,13 @@ function CaseBlock({ c }: { c: GTMCase }) {
 export default function RegionalGTM() {
   const [active, setActive] = useState(0);
 
-  // Track active case via IntersectionObserver
   useEffect(() => {
     const observers = CASES.map((c, i) => {
       const el = document.getElementById(`case-${c.id}`);
       if (!el) return null;
       const obs = new IntersectionObserver(
         ([entry]) => { if (entry.isIntersecting) setActive(i); },
-        { rootMargin: "-40% 0px -40% 0px" }
+        { rootMargin: "-35% 0px -35% 0px" }
       );
       obs.observe(el);
       return obs;
@@ -671,7 +721,7 @@ export default function RegionalGTM() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.6 }}
-      className="relative w-full bg-background overflow-hidden"
+      className="relative w-full bg-background"
     >
       {/* Navigation */}
       <div className="absolute inset-x-0 top-0 z-20">
@@ -681,14 +731,14 @@ export default function RegionalGTM() {
       <StickyNav active={active} onSelect={scrollTo} />
 
       {/* Hero */}
-      <div className="pt-32 pb-20 px-6 max-w-7xl mx-auto">
+      <div className="pt-32 pb-16 px-6 max-w-7xl mx-auto">
         <motion.span
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="block text-[11px] font-mono tracking-[0.3em] uppercase text-muted-foreground mb-10"
         >
-          GTM Playbooks \u00b7 FY24 to FY27
+          GTM Playbooks · FY24 to FY27
         </motion.span>
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -705,7 +755,9 @@ export default function RegionalGTM() {
           transition={{ duration: 0.9, delay: 0.2 }}
           className="text-lg text-muted-foreground max-w-2xl leading-relaxed mb-10"
         >
-          How FSS took the same payments platform to Africa, India, the Middle East, the Philippines, Europe, South East Asia, and the AI frontier, with a completely different strategy each time.
+          How FSS took the same payments platform to Africa, India, the Middle East,
+          the Philippines, Europe, South East Asia, and the AI frontier, with a
+          completely different strategy each time.
         </motion.p>
         <motion.div
           initial={{ opacity: 0 }}
@@ -713,19 +765,21 @@ export default function RegionalGTM() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="flex flex-wrap gap-2"
         >
-          {["Africa", "India \u00d73", "Middle East", "Philippines", "Europe", "South East Asia", "AI Portfolio"].map((r) => (
-            <span
-              key={r}
-              className="text-[10px] font-mono tracking-[0.14em] px-3 py-1.5 border border-white/[0.12] text-muted-foreground rounded-sm"
-            >
-              {r}
-            </span>
-          ))}
+          {["Africa", "India ×3", "Middle East", "Philippines", "Europe", "South East Asia", "AI Portfolio"].map(
+            (r) => (
+              <span
+                key={r}
+                className="text-[10px] font-mono tracking-[0.14em] px-3 py-1.5 border border-white/[0.12] text-muted-foreground rounded-sm"
+              >
+                {r}
+              </span>
+            )
+          )}
         </motion.div>
       </div>
 
       {/* Index Grid */}
-      <div className="px-6 pb-20 max-w-7xl mx-auto">
+      <div className="px-6 pb-24 max-w-7xl mx-auto">
         <div className="flex items-center gap-4 mb-8">
           <span className="text-[10px] font-mono tracking-[0.25em] uppercase text-muted-foreground/50">
             Jump to a campaign
@@ -740,33 +794,40 @@ export default function RegionalGTM() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: i * 0.06 }}
-              className="group text-left border border-white/[0.06] bg-white/[0.012] hover:border-white/20 hover:bg-white/[0.04] transition-all duration-300 p-6 rounded-lg relative overflow-hidden cursor-pointer"
+              className="group text-left border border-white/[0.08] bg-white/[0.02] hover:border-white/25 hover:bg-white/[0.06] transition-all duration-300 p-6 rounded-xl relative overflow-hidden cursor-pointer"
             >
-              <div className="flex items-start justify-between mb-3">
-                <span className="text-[9px] font-mono tracking-[0.2em] text-muted-foreground/40 tabular-nums">{c.num}</span>
-                <span className="text-[9px] font-mono tracking-[0.1em] text-muted-foreground/30 text-right leading-tight">{c.geo}</span>
+              <div className="flex items-start justify-between mb-4">
+                <span className="text-xs font-mono tracking-[0.18em] text-muted-foreground/40 tabular-nums">
+                  {c.num}
+                </span>
+                <span className="text-[10px] font-mono tracking-[0.1em] text-muted-foreground/30 text-right leading-tight max-w-[140px]">
+                  {c.geo}
+                </span>
               </div>
-              <span className="block text-[10px] font-mono tracking-[0.18em] uppercase mb-2" style={{ color: R }}>
+              <span
+                className="block text-xs font-mono tracking-[0.18em] uppercase mb-3 font-semibold"
+                style={{ color: R }}
+              >
                 {c.region}
               </span>
               <p
-                className="text-sm text-foreground leading-snug mb-8 line-clamp-2"
+                className="text-lg text-foreground leading-snug mb-8 line-clamp-2"
                 style={{ fontFamily: "'Instrument Serif', serif" }}
               >
                 {c.headline}
               </p>
               <div>
                 <div
-                  className="text-3xl text-foreground"
+                  className="text-5xl text-foreground leading-none"
                   style={{ fontFamily: "'Instrument Serif', serif" }}
                 >
                   {c.heroValue}
                 </div>
-                <div className="text-[10px] font-mono tracking-[0.08em] uppercase text-muted-foreground/50 mt-1">
+                <div className="text-xs font-mono tracking-[0.08em] uppercase text-muted-foreground/55 mt-2">
                   {c.heroLabel}
                 </div>
               </div>
-              {/* hover accent line */}
+              {/* hover accent */}
               <div
                 className="absolute bottom-0 left-0 h-0.5 w-0 group-hover:w-full transition-all duration-500"
                 style={{ backgroundColor: R }}
@@ -776,11 +837,37 @@ export default function RegionalGTM() {
         </div>
       </div>
 
-      {/* All case studies */}
-      <div className="px-6 max-w-7xl mx-auto pb-32">
-        {CASES.map((c) => (
-          <CaseBlock key={c.id} c={c} />
+      {/* All case studies (sticky white cards) */}
+      <div>
+        {CASES.map((c, i) => (
+          <CaseBlock key={c.id} c={c} index={i} />
         ))}
+      </div>
+
+      {/* Next Case Study */}
+      <div className="bg-background px-6 py-24 border-t border-white/[0.06]">
+        <div className="max-w-7xl mx-auto">
+          <span className="block text-[10px] font-mono tracking-[0.25em] uppercase text-muted-foreground/40 mb-8">
+            Next Case Study
+          </span>
+          <Link
+            to="/work/gtm-narratives"
+            className="group flex items-start justify-between gap-6"
+          >
+            <div>
+              <span className="text-[11px] font-mono tracking-[0.1em] text-muted-foreground/40">04 / 09</span>
+              <h3
+                className="text-4xl sm:text-5xl text-foreground mt-3 max-w-2xl leading-tight group-hover:opacity-70 transition-opacity"
+                style={{ fontFamily: "'Instrument Serif', serif" }}
+              >
+                Building GTM Narratives Across a Payments Ecosystem
+              </h3>
+            </div>
+            <span className="text-2xl text-muted-foreground group-hover:translate-x-2 transition-transform mt-4 shrink-0">
+              &rarr;
+            </span>
+          </Link>
+        </div>
       </div>
     </motion.main>
   );

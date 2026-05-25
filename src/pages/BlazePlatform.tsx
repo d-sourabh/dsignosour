@@ -166,8 +166,8 @@ export default function BlazePlatform() {
 
       <NextCaseStudy
         number="03 / 09"
-        route="/work/gtm-narratives"
-        title="Building GTM Narratives Across a Payments Ecosystem"
+        route="/work/regional-gtm"
+        title="Nine Campaigns. Six Markets."
       />
     </CaseStudyPage>
   );

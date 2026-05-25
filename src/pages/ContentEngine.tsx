@@ -11,7 +11,7 @@ export default function ContentEngine() {
   return (
     <CaseStudyPage>
       <CaseStudyOpening
-        index="07 / 09"
+        index="08 / 09"
         eyebrow="Case Study · Content Ecosystem"
         meta="Content Strategy · Product Marketing · Social Media · Demand Generation"
         statement="Building a scalable content ecosystem that unified strategy, storytelling, design, distribution, and performance into one continuous operating system."

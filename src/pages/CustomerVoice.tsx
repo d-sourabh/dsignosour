@@ -11,7 +11,7 @@ export default function CustomerVoice() {
   return (
     <CaseStudyPage>
       <CaseStudyOpening
-        index="06 / 09"
+        index="07 / 09"
         eyebrow="Case Study · Customer Voice & CXX Week"
         meta="CSAT & NPS · Qualtrics · Customer Analytics · Executive Engagement"
         statement="Turning scattered customer feedback into a system that leadership could act on."
@@ -98,8 +98,8 @@ export default function CustomerVoice() {
 
       <NextCaseStudy
         number="08 / 09"
-        route="/work/regional-gtm"
-        title="Nine Campaigns. Six Markets."
+        route="/work/content-engine"
+        title="Building a Full-Stack Content Engine"
       />
     </CaseStudyPage>
   );
