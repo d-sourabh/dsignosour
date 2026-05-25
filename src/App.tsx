@@ -9,6 +9,7 @@ import GTMNarratives from "@/pages/GTMNarratives";
 import SimplyPayments from "@/pages/SimplyPayments";
 import FSSATM from "@/pages/FSSATM";
 import CustomerVoice from "@/pages/CustomerVoice";
+import RegionalGTM from "@/pages/RegionalGTM";
 import ContentEngine from "@/pages/ContentEngine";
 import Thinking from "@/pages/Thinking";
 import Experiments from "@/pages/Experiments";
@@ -36,6 +37,7 @@ export default function App() {
           <Route path="/work/simply-payments" element={<SimplyPayments />} />
           <Route path="/work/fss-atm" element={<FSSATM />} />
           <Route path="/work/customer-voice" element={<CustomerVoice />} />
+          <Route path="/work/regional-gtm" element={<RegionalGTM />} />
           <Route path="/work/content-engine" element={<ContentEngine />} />
           <Route path="/thinking" element={<Thinking />} />
           <Route path="/experiments" element={<Experiments />} />

@@ -97,9 +97,9 @@ export default function CustomerVoice() {
       />
 
       <NextCaseStudy
-        number="01 / 09"
-        route="/work/fss-transformation"
-        title="Repositioning FSS for the AI Era"
+        number="08 / 09"
+        route="/work/regional-gtm"
+        title="Nine Campaigns. Six Markets."
       />
     </CaseStudyPage>
   );

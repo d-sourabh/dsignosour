@@ -124,12 +124,12 @@ const CASE_STUDIES: CaseStudy[] = [
   },
   {
     number: "08",
-    title: "CXO Relationship Marketing",
+    route: "/work/regional-gtm",
+    title: "Nine Campaigns. Six Markets.",
     description:
-      "Building a passion-led relationship programme for senior banking executives across Mumbai and Dubai, organised around cricket, golf, ghazals, and the arts.",
-    metadata: "Relationship Marketing · Events · CXO",
-    placeholder: "Placeholder for CXO programme visuals.",
-    inProgress: true,
+      "Region-specific GTM playbooks across Africa, India, the Middle East, the Philippines, Europe, South East Asia, and the AI frontier, each built around a different buyer, barrier, and strategy.",
+    metadata: "Regional GTM · Campaign Strategy · Product Marketing · Demand Generation",
+    placeholder: "Placeholder for regional GTM map visual.",
   },
   {
     number: "09",
