@@ -451,7 +451,7 @@ const CASES: GTMCase[] = [
 function StickyNav({ active, onSelect }: { active: number; onSelect: (i: number) => void }) {
   return (
     <nav
-      className="fixed right-5 top-1/2 -translate-y-1/2 z-[200] hidden xl:flex flex-col gap-0.5 p-2.5 rounded-2xl opacity-0 hover:opacity-100 transition-opacity duration-300"
+      className="fixed right-5 top-1/2 -translate-y-1/2 z-[200] hidden xl:flex flex-col gap-0.5 p-2.5 rounded-2xl opacity-20 hover:opacity-100 transition-opacity duration-300"
       style={{
         background: "rgba(0,0,0,0.72)",
         backdropFilter: "blur(12px)",
