@@ -21,13 +21,17 @@ export default function Hero() {
           className="animate-fade-rise text-5xl sm:text-7xl md:text-8xl leading-[0.95] tracking-[-2.46px] max-w-7xl font-normal text-balance"
           style={{ fontFamily: "'Instrument Serif', serif" }}
         >
-          Turning complex payments platforms into stories banks buy into.
+          A Marketer, Mostly Curious,{" "}
+          <em className="not-italic text-muted-foreground">
+            Occasionally Useful.
+          </em>
         </h1>
 
         <p className="animate-fade-rise-delay text-muted-foreground text-base sm:text-lg max-w-2xl mt-8 leading-relaxed">
-          Product marketing for fintech and payments infrastructure, across{" "}
-          <em className="not-italic text-foreground/80">India, the Middle East, Africa,</em>{" "}
-          and <em className="not-italic text-foreground/80">APAC.</em>
+          Mostly asking why some{" "}
+          <em className="not-italic text-foreground/80">ideas stick.</em>{" "}
+          Occasionally building the ones{" "}
+          <em className="not-italic text-foreground/80">that should.</em>
         </p>
 
         <a
