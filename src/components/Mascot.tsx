@@ -104,8 +104,13 @@ export default function Mascot() {
     y: Math.round(wp[1] * window.innerHeight),
   }), []);
 
-  // Init
-  useEffect(() => { setPos(calcPos(WPS[0])); }, [calcPos]);
+  // Init: start at bottom-left
+  useEffect(() => {
+    setPos({
+      x: 24,
+      y: Math.round(window.innerHeight * 0.88),
+    });
+  }, []);
 
   // Waypoint cycle
   useEffect(() => {
@@ -222,7 +227,7 @@ export default function Mascot() {
     return (
       <motion.button
         initial={{ scale: 0 }} animate={{ scale: 1 }}
-        className="fixed bottom-6 right-6 z-[999] cursor-pointer"
+        className="fixed bottom-6 left-6 z-[999] cursor-pointer"
         onClick={() => setMinimized(false)}
         title="Bring Dsignosour back"
         aria-label="Reopen guide"
@@ -230,10 +235,10 @@ export default function Mascot() {
         <motion.div
           animate={{ scale: [1, 1.18, 1] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="w-10 h-10 rounded-full flex items-center justify-center text-lg"
+          className="w-10 h-10 rounded-full flex items-center justify-center"
           style={{ backgroundColor: R, boxShadow: `0 0 16px 4px rgba(200,16,46,0.4)` }}
         >
-          🦕
+          <DsignosaurSVG size={28} />
         </motion.div>
       </motion.button>
     );
