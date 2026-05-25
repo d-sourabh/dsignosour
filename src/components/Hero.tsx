@@ -4,7 +4,7 @@ const VIDEO_SRC =
 export default function Hero() {
   return (
     <section className="relative w-full overflow-hidden">
-      {/* Video background — provides all atmosphere, no overlays */}
+      {/* Video background: provides all atmosphere, no overlays */}
       <video
         autoPlay
         loop
@@ -21,17 +21,13 @@ export default function Hero() {
           className="animate-fade-rise text-5xl sm:text-7xl md:text-8xl leading-[0.95] tracking-[-2.46px] max-w-7xl font-normal text-balance"
           style={{ fontFamily: "'Instrument Serif', serif" }}
         >
-          A marketer,{" "}
-          <em className="not-italic text-muted-foreground">
-            occasionally useful.
-          </em>
+          Turning complex payments platforms into stories banks buy into.
         </h1>
 
         <p className="animate-fade-rise-delay text-muted-foreground text-base sm:text-lg max-w-2xl mt-8 leading-relaxed">
-          Frequently{" "}
-          <em className="not-italic text-foreground/80">distracted.</em>{" "}
-          Mostly thinking about why some things{" "}
-          <em className="not-italic text-foreground/80">stick.</em>
+          Product marketing for fintech and payments infrastructure, across{" "}
+          <em className="not-italic text-foreground/80">India, the Middle East, Africa,</em>{" "}
+          and <em className="not-italic text-foreground/80">APAC.</em>
         </p>
 
         <a
