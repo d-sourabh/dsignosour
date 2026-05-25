@@ -233,7 +233,7 @@ export default function Mascot() {
           className="w-10 h-10 rounded-full flex items-center justify-center text-lg"
           style={{ backgroundColor: R, boxShadow: `0 0 16px 4px rgba(200,16,46,0.4)` }}
         >
-          \ud83e\udd95
+          🦕
         </motion.div>
       </motion.button>
     );
@@ -326,7 +326,7 @@ export default function Mascot() {
                 className="flex items-center gap-2.5 w-full px-4 py-2.5 text-[13px] text-left transition-colors hover:bg-white/[0.07]"
                 style={{ color: R }}
               >
-                \ud83c\udfb2 Surprise me
+                🎲 Surprise me
               </button>
               <div className="mx-4 my-1 h-px bg-white/[0.07]" />
               <div className="px-4 pt-1 pb-1">
@@ -337,7 +337,7 @@ export default function Mascot() {
                 className="flex items-center justify-between w-full px-4 py-2.5 text-[13px] text-white/70 hover:text-white hover:bg-white/[0.07] transition-colors pb-3"
               >
                 <span>Current: <span className="text-white">{MOOD_ICON[mood]} {mood}</span></span>
-                <span className="text-white/30 text-[11px]">cycle \u2192</span>
+                <span className="text-white/30 text-[11px]">cycle →</span>
               </button>
             </div>
             {/* Triangle */}
