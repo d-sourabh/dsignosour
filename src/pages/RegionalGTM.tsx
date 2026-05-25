@@ -499,10 +499,13 @@ function StickyNav({ active, onSelect }: { active: number; onSelect: (i: number)
 
 function CaseBlock({ c, index }: { c: GTMCase; index: number }) {
   return (
-    <section
+    <motion.section
       id={`case-${c.id}`}
-      className="sticky mx-3 sm:mx-5"
-      style={{ top: 80, zIndex: 10 + index }}
+      className="mx-3 sm:mx-5 mb-6"
+      initial={{ opacity: 0, y: 48 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.05 }}
     >
       <div
         className="rounded-3xl overflow-hidden"
@@ -691,7 +694,7 @@ function CaseBlock({ c, index }: { c: GTMCase; index: number }) {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 
@@ -840,8 +843,8 @@ export default function RegionalGTM() {
         </div>
       </div>
 
-      {/* All case studies (sticky white cards) */}
-      <div>
+      {/* All case studies: scroll-triggered white cards */}
+      <div className="pb-6">
         {CASES.map((c, i) => (
           <CaseBlock key={c.id} c={c} index={i} />
         ))}
