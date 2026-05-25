@@ -59,6 +59,7 @@ const CASE_STUDIES: CaseStudy[] = [  {
       "Region-specific GTM playbooks across Africa, India, the Middle East, the Philippines, Europe, South East Asia, and the AI frontier, each built around a different buyer, barrier, and strategy.",
     metadata: "Regional GTM · Campaign Strategy · Product Marketing · Demand Generation",
     placeholder: "Placeholder for regional GTM map visual.",
+    thumbnail: "/regional-gtm-thumbnail.webp",
   },
   {
     number: "04",
