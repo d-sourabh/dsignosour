@@ -58,6 +58,14 @@ export default function Navigation({ variant = "transparent" }: NavigationProps)
 
       <div className="flex flex-row items-center gap-2 sm:gap-3 shrink-0">
         <a
+          href="/resume.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden md:inline-flex liquid-glass rounded-full px-4 sm:px-5 py-2 sm:py-2.5 text-sm text-muted-foreground hover:text-foreground hover:scale-[1.03] transition-all duration-300 whitespace-nowrap shrink-0"
+        >
+          Resume
+        </a>
+        <a
           href="mailto:srbhdhavala@gmail.com"
           aria-label="Email"
           className="liquid-glass rounded-full w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center text-foreground hover:scale-[1.03] transition-transform duration-300 shrink-0"
