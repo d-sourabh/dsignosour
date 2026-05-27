@@ -15,41 +15,41 @@ const WPS: [number, number][] = [
 
 const MESSAGES: Record<Mood, string[]> = {
   normal: [
-    "Hey! I\u2019m Dsignosour \u2014 your guide. Click me for tips, drag me around. \ud83e\udd95",
+    "Hey. I am Dsignosour. Click me for tips, drag me anywhere.",
     "There are 9 case studies here. Click any tile on the homepage to dive in.",
     "Case Study 03 covers nine campaigns across six markets. One of the bigger reads.",
-    "Scroll past the work tiles \u2014 there\u2019s a Key Accolades section hiding below. \ud83d\udc47",
+    "Scroll past the work tiles. There is a Key Accolades section below.",
     "The BLAZE case study (02) shows how positioning turns a platform into a story banks buy.",
     "The Thinking tab is where things get more personal.",
     "The Experiments tab has AI-built marketing tools. Worth a look.",
-    "Each case study ends with a \u2192 to the next. You can read all nine in order.",
+    "Each case study ends with an arrow to the next. You can read all nine in sequence.",
     "The ATM Growth Story (06) is about reviving a business that had stopped growing.",
-    "Regional GTM (03) \u2014 nine campaigns, six markets, one discipline. Start there for the big picture.",
+    "Regional GTM (03): nine campaigns, six markets, one discipline. Start there for the big picture.",
   ],
   excited: [
-    "OOH! Have you seen the Regional GTM study yet?! NINE campaigns!! \ud83e\udd95\ud83d\udca8",
-    "NINE case studies! All completely different strategies! Have you read them ALL?!",
-    "The BLAZE launch hit 54% email CTOR \u2014 THREE times the benchmark! So good!!",
-    "Simply Payments! Dubai! Mumbai! Bank CXOs! Real events! Go read it!! \ud83d\ude80",
-    "EXPERIMENTS TAB! AI TOOLS! GO! GO! GO! \ud83d\ude80",
-    "I\u2019m very awake right now. Are you? Click \u2192 Surprise Me to go somewhere fun!!",
+    "Have you seen the Regional GTM study? Nine campaigns, each a different strategy.",
+    "Nine case studies, all different markets and approaches. Have you been through all of them?",
+    "The BLAZE launch hit 54% email CTOR. Three times the benchmark.",
+    "Simply Payments ran across Mumbai and Dubai. Real rooms, real bank CXOs.",
+    "The Experiments tab has AI-built tools. Try one.",
+    "Try the Surprise Me button in the menu. It will take you somewhere.",
   ],
   sleepy: [
-    "*yawn*... Oh! You\u2019re still here... that\u2019s... nice... \ud83d\udca4",
-    "The case studies are... very... interesting... if you have the energy... zz",
-    "Thinking tab... personal stuff... worth a... *yawn* ...look...",
-    "Nine case... studies... scroll... down... slowly... \ud83d\ude34",
-    "I\u2019m not asleep... just... resting my eyes... the work tiles are right there... \ud83d\udca4",
+    "Still here. The work is worth the scroll.",
+    "The case studies are long reads. That is intentional.",
+    "The Thinking tab is more personal. Worth a visit.",
+    "Nine case studies. Take your time with them.",
+    "The work tiles are right there when you are ready.",
   ],
 };
 
 const EASTER_MSG =
-  "Ok ok ok! \ud83d\ude05 You found it. Fun fact: this portfolio took longer to build than most of the campaigns inside it. Now stop clicking me! \ud83e\udd95";
+  "You found it. This portfolio took longer to build than most of the campaigns inside it. You can stop clicking now.";
 
 const MOOD_BOB:  Record<Mood, number> = { normal: 2.8, excited: 1.1, sleepy: 5.5 };
 const MOOD_MOVE: Record<Mood, number> = { normal: 16000, excited: 8000, sleepy: 30000 };
 const MOOD_NEXT: Record<Mood, Mood>   = { normal: "excited", excited: "sleepy", sleepy: "normal" };
-const MOOD_ICON: Record<Mood, string> = { normal: "\ud83d\ude0a", excited: "\ud83e\udd29", sleepy: "\ud83d\ude34" };
+const MOOD_ICON: Record<Mood, string> = { normal: "calm", excited: "up", sleepy: "low" };
 
 const CASE_ROUTES = [
   "/work/fss-transformation", "/work/blaze-platform", "/work/regional-gtm",
@@ -331,7 +331,7 @@ export default function Mascot() {
                 className="flex items-center gap-2.5 w-full px-4 py-2.5 text-[13px] text-left transition-colors hover:bg-white/[0.07]"
                 style={{ color: R }}
               >
-                🎲 Surprise me
+                Surprise me
               </button>
               <div className="mx-4 my-1 h-px bg-white/[0.07]" />
               <div className="px-4 pt-1 pb-1">

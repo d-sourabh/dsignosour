@@ -28,7 +28,7 @@ export default function Footer() {
           }}
         />
 
-        {/* Bottom gradient: deeper, so text sits cleanly + transitions into the navy contact area below */}
+        {/* Bottom gradient: deeper, so text sits cleanly + transitions into the dark contact area below */}
         <div
           className="absolute inset-x-0 bottom-0 h-1/2 pointer-events-none"
           style={{
@@ -63,7 +63,7 @@ export default function Footer() {
         </motion.div>
       </section>
 
-      {/* Contact zone: sits on the site's navy background */}
+      {/* Contact zone: sits on the site's dark background */}
       <div className="relative px-6 pt-32 pb-20 max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
