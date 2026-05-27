@@ -866,7 +866,7 @@ export default function RegionalGTM() {
                 className="text-4xl sm:text-5xl text-foreground mt-3 max-w-2xl leading-tight group-hover:opacity-70 transition-opacity"
                 style={{ fontFamily: "'Instrument Serif', serif" }}
               >
-                Building GTM Narratives Across a Payments Ecosystem
+                Messaging Architecture Across a Payments Ecosystem
               </h3>
             </div>
             <span className="text-2xl text-muted-foreground group-hover:translate-x-2 transition-transform mt-4 shrink-0">

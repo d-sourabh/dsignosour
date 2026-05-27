@@ -64,7 +64,7 @@ const CASE_STUDIES: CaseStudy[] = [  {
   {
     number: "04",
     route: "/work/gtm-narratives",
-    title: "Building GTM Narratives Across a Payments Ecosystem",
+    title: "Messaging Architecture Across a Payments Ecosystem",
     description:
       "Creating product positioning systems and GTM narratives across payment gateway, CMS, recon, switch, and platform products.",
     metadata: "GTM · Positioning · Sales Enablement · PMM",
@@ -94,7 +94,7 @@ const CASE_STUDIES: CaseStudy[] = [  {
   {
     number: "06",
     route: "/work/fss-atm",
-    title: "Building a Growth Story for a Saturated ATM Business",
+    title: "Reviving Growth in a Saturated ATM Business",
     description:
       "Reviving growth in a saturated, slow-growth ATM managed-services business by reframing a commoditised category into a four-part transformation banks would invest in.",
     metadata: "Product Marketing · Category Narrative · Positioning · Sales Enablement",
@@ -109,7 +109,7 @@ const CASE_STUDIES: CaseStudy[] = [  {
   {
     number: "07",
     route: "/work/customer-voice",
-    title: "Building a Customer Voice System Across 34 Accounts",
+    title: "Customer Voice Intelligence Across 34 Accounts",
     description:
       "Designing a CSAT and NPS listening system in Qualtrics, coding hundreds of verbatim responses into themes, and building a live observability dashboard leadership could act on.",
     metadata: "CSAT & NPS · Qualtrics · Customer Analytics · Executive Engagement",
@@ -124,7 +124,7 @@ const CASE_STUDIES: CaseStudy[] = [  {
   {
     number: "08",
     route: "/work/content-engine",
-    title: "Building a Full-Stack Content Engine",
+    title: "A Full-Stack Content Operating Model for FSS",
     description:
       "Built and operated an end-to-end fintech content ecosystem spanning product storytelling, social media, thought leadership, design, video, distribution, and performance marketing.",
     metadata: "Content Strategy · Product Marketing · Social Media · Demand Generation",

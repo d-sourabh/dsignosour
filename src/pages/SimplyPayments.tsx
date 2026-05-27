@@ -116,7 +116,7 @@ export default function SimplyPayments() {
       <NextCaseStudy
         number="06 / 09"
         route="/work/fss-atm"
-        title="Building a Growth Story for a Saturated ATM Business"
+        title="Reviving Growth in a Saturated ATM Business"
       />
     </CaseStudyPage>
   );

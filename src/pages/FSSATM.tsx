@@ -116,7 +116,7 @@ export default function FSSATM() {
       <NextCaseStudy
         number="07 / 09"
         route="/work/customer-voice"
-        title="Building a Customer Voice System Across 34 Accounts"
+        title="Customer Voice Intelligence Across 34 Accounts"
       />
     </CaseStudyPage>
   );
