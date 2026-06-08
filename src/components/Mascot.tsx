@@ -20,7 +20,7 @@ const WPS: [number, number][] = [
 
 const MESSAGES: Record<Mood, string[]> = {
   normal: [
-    "Hey. I am Dsignosour. Click me for tips, drag me anywhere.",
+    "Hey. I am dsignosour. Click me for tips, drag me anywhere.",
     "There are 9 case studies here. Click any tile on the homepage to dive in.",
     "Case Study 03 covers nine campaigns across six markets. One of the bigger reads.",
     "Scroll past the work tiles. There is a Key Accolades section below.",
@@ -230,7 +230,7 @@ export default function Mascot() {
         initial={{ scale: 0 }} animate={{ scale: 1 }}
         className="fixed bottom-6 left-6 z-[999] cursor-pointer"
         onClick={() => setMinimized(false)}
-        title="Bring Dsignosour back"
+        title="Bring dsignosour back"
         aria-label="Reopen guide"
       >
         <motion.div
