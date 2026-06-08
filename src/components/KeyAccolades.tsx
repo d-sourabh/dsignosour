@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { Trophy, Star, Flag, Zap } from "lucide-react";
+import type { ReactNode } from "react";
 
 type Category = "Award" | "Recognition" | "Milestone" | "Innovation";
 
@@ -77,11 +79,11 @@ const TIMELINE: YearGroup[] = [
   },
 ];
 
-const CAT: Record<Category, string> = {
-  Award:       "text-[#C8102E] border-[#C8102E]/30 bg-[#C8102E]/[0.07]",
-  Recognition: "text-amber-400/80 border-amber-400/20 bg-amber-400/[0.06]",
-  Milestone:   "text-white/50 border-white/[0.10] bg-white/[0.04]",
-  Innovation:  "text-sky-400/80 border-sky-400/20 bg-sky-400/[0.06]",
+const CAT_ICON: Record<Category, ReactNode> = {
+  Award:       <Trophy  size={13} className="text-[#C8102E]"          strokeWidth={1.8} />,
+  Recognition: <Star    size={13} className="text-amber-400/80"        strokeWidth={1.8} />,
+  Milestone:   <Flag    size={13} className="text-white/40"            strokeWidth={1.8} />,
+  Innovation:  <Zap     size={13} className="text-sky-400/80"          strokeWidth={1.8} />,
 };
 
 export default function KeyAccolades() {
@@ -157,8 +159,8 @@ export default function KeyAccolades() {
                       >
                         {item.title}
                       </h3>
-                      <span className={`text-[9px] font-mono tracking-[0.14em] uppercase px-2 py-1 border rounded-sm shrink-0 ${CAT[item.category]}`}>
-                        {item.category}
+                      <span className="shrink-0 mt-1">
+                        {CAT_ICON[item.category]}
                       </span>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
