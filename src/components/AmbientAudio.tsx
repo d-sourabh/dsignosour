@@ -82,44 +82,36 @@ export default function AmbientAudio() {
     }
   }, [isPlaying, fadeIn, fadeOut, hasInteracted]);
 
-  // On mount: restore session preference
+  // On mount: always attempt autoplay; fall back silently if browser blocks it
   useEffect(() => {
-    const stored = sessionStorage.getItem(STORAGE_KEY);
-    if (stored === "false") {
-      // User previously opted in — try to resume
-      const audio = audioRef.current;
-      if (audio) {
-        audio.volume = 0;
-        audio
-          .play()
-          .then(() => {
-            setIsPlaying(true);
-            setHasInteracted(true);
-            // Fade in
-            const steps = 30;
-            const stepTime = 1500 / steps;
-            const increment = TARGET_VOLUME / steps;
-            let current = 0;
-            fadeRef.current = setInterval(() => {
-              current += increment;
-              if (current >= TARGET_VOLUME) {
-                audio.volume = TARGET_VOLUME;
-                if (fadeRef.current !== null) clearInterval(fadeRef.current);
-                fadeRef.current = null;
-              } else {
-                audio.volume = current;
-              }
-            }, stepTime);
-          })
-          .catch(() => {
-            // Autoplay blocked — stay muted
-          });
-      }
-    }
+    const audio = audioRef.current;
+    if (!audio) return;
+    audio.volume = 0;
+    audio
+      .play()
+      .then(() => {
+        setIsPlaying(true);
+        setHasInteracted(true);
+        const steps = 30;
+        const stepTime = 1500 / steps;
+        const increment = TARGET_VOLUME / steps;
+        let current = 0;
+        fadeRef.current = setInterval(() => {
+          current += increment;
+          if (current >= TARGET_VOLUME) {
+            audio.volume = TARGET_VOLUME;
+            if (fadeRef.current !== null) clearInterval(fadeRef.current);
+            fadeRef.current = null;
+          } else {
+            audio.volume = current;
+          }
+        }, stepTime);
+      })
+      .catch(() => {
+        // Autoplay blocked by browser: stay silent until user clicks
+      });
 
-    return () => {
-      clearFade();
-    };
+    return () => { clearFade(); };
   }, [clearFade]);
 
   // Show hint tooltip 3s after mount, hide after 8s or on first interaction
