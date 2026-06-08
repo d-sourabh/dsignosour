@@ -15,59 +15,25 @@ interface YearGroup {
 
 const TIMELINE: YearGroup[] = [
   {
-    year: "2021",
-    items: [
-      {
-        title: "Built the FSS Corporate Website from Zero",
-        detail:
-          "Created the company's entire digital presence from scratch: 30+ SEO-optimised pages, full martech stack for lead capture to email workflow, and an AI chatbot. Achieved 100%+ organic traffic growth, 32 keywords at the number one position on Google, 40%+ Answer Engine Optimization, and 15,000+ monthly views.",
-        category: "Milestone",
-      },
-    ],
-  },
-  {
-    year: "2023",
-    items: [
-      {
-        title: "Simply Payments: First Edition, 27 Attendees",
-        detail:
-          "Conceived and launched FSS's flagship CXO event series from scratch in Mumbai. The first edition brought together 27 senior banking leaders and established the format that would grow into a recognised industry event.",
-        category: "Milestone",
-      },
-    ],
-  },
-  {
     year: "2024",
     items: [
       {
         title: "Runner-Up, NPCI NCMC Ideathon",
         detail:
-          "National-level competition organised by the National Payments Corporation of India. Recognised for the NCMC Karmanya Card concept: One Nation, One Workforce, integrating public transit, workplace access, and everyday transactions into a single card for India's working population.",
+          "National-level NPCI competition for the NCMC Karmanya Card: One Nation, One Workforce, integrating public transit, workplace access, and everyday transactions into a single card for India's working population.",
         category: "Award",
       },
       {
         title: "E4M Indian Marketing Awards",
         detail:
-          "Best Campaign recognition for the FSS BLAZE go-to-market: a platform launch spanning India, the Middle East, and Africa, built around unscripted leadership video and a six-week email drip to 10,000+ bank contacts. The campaign achieved a 54% click-to-open rate against the 15% industry benchmark.",
+          "Best Campaign for the FSS BLAZE go-to-market across India, the Middle East, and Africa. The campaign achieved a 54% email click-to-open rate, three times the industry benchmark.",
         category: "Award",
-      },
-      {
-        title: "Built Merlin: FSS's First AI Chatbot",
-        detail:
-          "First person in the organisation to build AI into the product stack. Merlin recorded 400+ interactions across three continents in its first deployment cycle, establishing the template for AI-powered customer engagement at FSS.",
-        category: "Innovation",
       },
       {
         title: "Member, CBDC Centre of Excellence",
         detail:
-          "Selected as a founding member, contributing to strategy, communications, and market positioning for India's central bank digital currency initiatives alongside the broader payments policy ecosystem.",
+          "Selected as a founding member, contributing to strategy and communications for India's central bank digital currency initiatives.",
         category: "Recognition",
-      },
-      {
-        title: "Introduced Augmented Reality in Event Marketing",
-        detail:
-          "Pioneered AR at FSS events with the AR CEO business card: a printed card that when scanned played a personalised video address from the FSS CEO. The most talked-about activation at the Africa banking delegate visit.",
-        category: "Innovation",
       },
     ],
   },
@@ -75,27 +41,15 @@ const TIMELINE: YearGroup[] = [
     year: "2025",
     items: [
       {
-        title: "Digital Dragons Award: Best B2B Marketing Campaign",
+        title: "Digital Dragons Award",
         detail:
-          "Recognised for a six-market digital performance programme targeting senior banking decision-makers across India, the Middle East, Africa, Europe, and the Philippines, achieving a 0.96% CTR against the 0.4% B2B industry benchmark.",
+          "Best B2B Marketing Campaign for a six-market digital programme targeting senior banking decision-makers, achieving a 0.96% CTR against the 0.4% industry benchmark.",
         category: "Award",
-      },
-      {
-        title: "Simply Payments: 175+ Attendees, Dubai Edition",
-        detail:
-          "Scaled the flagship event from 27 attendees in 2023 to over 175 in 2025, with 40+ banking CXOs, 60,000+ live viewers on Moneycontrol, CNBC TV-18 telecast, and Forbes India coverage. Launched the Dubai edition at Grosvenor House with 70+ senior attendees and Khaleej Times coverage.",
-        category: "Milestone",
-      },
-      {
-        title: "LinkedIn: 24,000 to 75,000+ Followers",
-        detail:
-          "Grew the FSS LinkedIn community from 24,000 to over 75,000 followers over four years, with 60% from the banking industry and a shift in Media Share of Voice from fifth to first in India among payments competitors.",
-        category: "Milestone",
       },
       {
         title: "AI Champion",
         detail:
-          "Recognised as AI Champion at FSS. Pioneered AI for content production at scale, introduced AR in event marketing, designed the company's first AI-powered account observability dashboard, and completed a three-month professional AI training programme as a member of the AI Centre of Excellence.",
+          "Recognised AI Champion at FSS. Pioneered AI for content production at scale, built Merlin (FSS's first AI chatbot with 400+ interactions across three continents), and completed a three-month professional AI training programme.",
         category: "Recognition",
       },
     ],
@@ -106,7 +60,7 @@ const TIMELINE: YearGroup[] = [
       {
         title: "Best Event Marketing Campaign, World Fintech Awards",
         detail:
-          "FSS Simply Payments recognised as the best event marketing campaign in the global fintech industry, across the Mumbai and Dubai editions.",
+          "Simply Payments across Mumbai and Dubai, growing from 27 attendees in 2023 to over 175 in 2025.",
         category: "Award",
       },
     ],
@@ -116,8 +70,7 @@ const TIMELINE: YearGroup[] = [
     items: [
       {
         title: "5x Winner, Team of the Quarter",
-        detail:
-          "Recognised five times across different quarters at FSS for work spanning brand repositioning, product marketing, campaign execution, and event production.",
+        detail: "Recognised five times across different quarters at FSS for brand, product marketing, and event work.",
         category: "Recognition",
       },
     ],
