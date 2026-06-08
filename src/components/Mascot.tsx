@@ -8,9 +8,14 @@ const R = "#C8102E";
 type Mood = "normal" | "excited" | "sleepy";
 
 const WPS: [number, number][] = [
-  [0.04, 0.62], [0.82, 0.58], [0.04, 0.76],
-  [0.82, 0.34], [0.42, 0.80], [0.04, 0.42],
-  [0.82, 0.72], [0.42, 0.50],
+  [0.04, 0.88],  // bottom-left (home)
+  [0.82, 0.58],
+  [0.04, 0.76],
+  [0.82, 0.34],
+  [0.42, 0.80],
+  [0.04, 0.42],
+  [0.82, 0.72],
+  [0.42, 0.50],
 ];
 
 const MESSAGES: Record<Mood, string[]> = {
@@ -100,11 +105,11 @@ export default function Mascot() {
     y: Math.round(wp[1] * window.innerHeight),
   }), []);
 
-  // Init: start at bottom-left
+  // Init: start at bottom-left corner
   useEffect(() => {
     setPos({
       x: 24,
-      y: Math.round(window.innerHeight * 0.88),
+      y: Math.round(window.innerHeight - 100),
     });
   }, []);
 
