@@ -20,8 +20,6 @@ const MESSAGES: Record<Mood, string[]> = {
     "Case Study 03 covers nine campaigns across six markets. One of the bigger reads.",
     "Scroll past the work tiles. There is a Key Accolades section below.",
     "The BLAZE case study (02) shows how positioning turns a platform into a story banks buy.",
-    "The Thinking tab is where things get more personal.",
-    "The Experiments tab has AI-built marketing tools. Worth a look.",
     "Each case study ends with an arrow to the next. You can read all nine in sequence.",
     "The ATM Growth Story (06) is about reviving a business that had stopped growing.",
     "Regional GTM (03): nine campaigns, six markets, one discipline. Start there for the big picture.",
@@ -31,13 +29,11 @@ const MESSAGES: Record<Mood, string[]> = {
     "Nine case studies, all different markets and approaches. Have you been through all of them?",
     "The BLAZE launch hit 54% email CTOR. Three times the benchmark.",
     "Simply Payments ran across Mumbai and Dubai. Real rooms, real bank CXOs.",
-    "The Experiments tab has AI-built tools. Try one.",
     "Try the Surprise Me button in the menu. It will take you somewhere.",
   ],
   sleepy: [
     "Still here. The work is worth the scroll.",
     "The case studies are long reads. That is intentional.",
-    "The Thinking tab is more personal. Worth a visit.",
     "Nine case studies. Take your time with them.",
     "The work tiles are right there when you are ready.",
   ],
@@ -316,7 +312,7 @@ export default function Mascot() {
               <div className="px-4 pt-3 pb-1">
                 <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-white/35">Navigate</span>
               </div>
-              {[{ label: "Home", to: "/" }, { label: "Thinking", to: "/thinking" }, { label: "Experiments", to: "/experiments" }].map(({ label, to }) => (
+              {[{ label: "Home", to: "/" }].map(({ label, to }) => (
                 <Link
                   key={to} to={to}
                   onClick={() => setNavOpen(false)}

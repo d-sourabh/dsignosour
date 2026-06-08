@@ -5,8 +5,6 @@ import { Mail, Linkedin } from "lucide-react";
 const NAV_LINKS = [
   { label: "Work", href: "/#work" },
   { label: "About", href: "/#about" },
-  { label: "Thinking", href: "/thinking", isRoute: true },
-  { label: "Experiments", href: "/experiments", isRoute: true },
   { label: "Contact", href: "/#contact" },
 ];
 
@@ -57,14 +55,6 @@ export default function Navigation({ variant = "transparent" }: NavigationProps)
       </div>
 
       <div className="flex flex-row items-center gap-2 sm:gap-3 shrink-0">
-        <a
-          href="/resume.html"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden md:inline-flex liquid-glass rounded-full px-4 sm:px-5 py-2 sm:py-2.5 text-sm text-muted-foreground hover:text-foreground hover:scale-[1.03] transition-all duration-300 whitespace-nowrap shrink-0"
-        >
-          Resume
-        </a>
         <a
           href="mailto:srbhdhavala@gmail.com"
           aria-label="Email"
